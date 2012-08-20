@@ -1,0 +1,289 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		9BB0174515E216D000133D10 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BB0174415E216D000133D10 /* UIKit.framework */; };
+		9BB0174715E216D000133D10 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BB0174615E216D000133D10 /* Foundation.framework */; };
+		9BB0174915E216D000133D10 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BB0174815E216D000133D10 /* CoreGraphics.framework */; };
+		9BB0174F15E216D000133D10 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9BB0174D15E216D000133D10 /* InfoPlist.strings */; };
+		9BB0175115E216D000133D10 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BB0175015E216D000133D10 /* main.m */; };
+		9BB0175515E216D000133D10 /* DPAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BB0175415E216D000133D10 /* DPAppDelegate.m */; };
+		9BB0175815E216D000133D10 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BB0175615E216D000133D10 /* MainStoryboard.storyboard */; };
+		9BB0175B15E216D000133D10 /* DPViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BB0175A15E216D000133D10 /* DPViewController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		9BB0174015E216D000133D10 /* DrawingProj.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DrawingProj.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9BB0174415E216D000133D10 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		9BB0174615E216D000133D10 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		9BB0174815E216D000133D10 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		9BB0174C15E216D000133D10 /* DrawingProj-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "DrawingProj-Info.plist"; sourceTree = "<group>"; };
+		9BB0174E15E216D000133D10 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		9BB0175015E216D000133D10 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		9BB0175215E216D000133D10 /* DrawingProj-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DrawingProj-Prefix.pch"; sourceTree = "<group>"; };
+		9BB0175315E216D000133D10 /* DPAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DPAppDelegate.h; sourceTree = "<group>"; };
+		9BB0175415E216D000133D10 /* DPAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DPAppDelegate.m; sourceTree = "<group>"; };
+		9BB0175715E216D000133D10 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
+		9BB0175915E216D000133D10 /* DPViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DPViewController.h; sourceTree = "<group>"; };
+		9BB0175A15E216D000133D10 /* DPViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DPViewController.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		9BB0173D15E216D000133D10 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9BB0174515E216D000133D10 /* UIKit.framework in Frameworks */,
+				9BB0174715E216D000133D10 /* Foundation.framework in Frameworks */,
+				9BB0174915E216D000133D10 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		9BB0173515E216D000133D10 = {
+			isa = PBXGroup;
+			children = (
+				9BB0174A15E216D000133D10 /* DrawingProj */,
+				9BB0174315E216D000133D10 /* Frameworks */,
+				9BB0174115E216D000133D10 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		9BB0174115E216D000133D10 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9BB0174015E216D000133D10 /* DrawingProj.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9BB0174315E216D000133D10 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9BB0174415E216D000133D10 /* UIKit.framework */,
+				9BB0174615E216D000133D10 /* Foundation.framework */,
+				9BB0174815E216D000133D10 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9BB0174A15E216D000133D10 /* DrawingProj */ = {
+			isa = PBXGroup;
+			children = (
+				9BB0175315E216D000133D10 /* DPAppDelegate.h */,
+				9BB0175415E216D000133D10 /* DPAppDelegate.m */,
+				9BB0175615E216D000133D10 /* MainStoryboard.storyboard */,
+				9BB0175915E216D000133D10 /* DPViewController.h */,
+				9BB0175A15E216D000133D10 /* DPViewController.m */,
+				9BB0174B15E216D000133D10 /* Supporting Files */,
+			);
+			path = DrawingProj;
+			sourceTree = "<group>";
+		};
+		9BB0174B15E216D000133D10 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				9BB0174C15E216D000133D10 /* DrawingProj-Info.plist */,
+				9BB0174D15E216D000133D10 /* InfoPlist.strings */,
+				9BB0175015E216D000133D10 /* main.m */,
+				9BB0175215E216D000133D10 /* DrawingProj-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		9BB0173F15E216D000133D10 /* DrawingProj */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9BB0175E15E216D000133D10 /* Build configuration list for PBXNativeTarget "DrawingProj" */;
+			buildPhases = (
+				9BB0173C15E216D000133D10 /* Sources */,
+				9BB0173D15E216D000133D10 /* Frameworks */,
+				9BB0173E15E216D000133D10 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DrawingProj;
+			productName = DrawingProj;
+			productReference = 9BB0174015E216D000133D10 /* DrawingProj.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		9BB0173715E216D000133D10 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = DP;
+				LastUpgradeCheck = 0440;
+				ORGANIZATIONNAME = BuG.BS;
+			};
+			buildConfigurationList = 9BB0173A15E216D000133D10 /* Build configuration list for PBXProject "DrawingProj" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 9BB0173515E216D000133D10;
+			productRefGroup = 9BB0174115E216D000133D10 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9BB0173F15E216D000133D10 /* DrawingProj */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		9BB0173E15E216D000133D10 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9BB0174F15E216D000133D10 /* InfoPlist.strings in Resources */,
+				9BB0175815E216D000133D10 /* MainStoryboard.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9BB0173C15E216D000133D10 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9BB0175115E216D000133D10 /* main.m in Sources */,
+				9BB0175515E216D000133D10 /* DPAppDelegate.m in Sources */,
+				9BB0175B15E216D000133D10 /* DPViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		9BB0174D15E216D000133D10 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9BB0174E15E216D000133D10 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		9BB0175615E216D000133D10 /* MainStoryboard.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9BB0175715E216D000133D10 /* en */,
+			);
+			name = MainStoryboard.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		9BB0175C15E216D000133D10 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Debug;
+		};
+		9BB0175D15E216D000133D10 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		9BB0175F15E216D000133D10 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "DrawingProj/DrawingProj-Prefix.pch";
+				INFOPLIST_FILE = "DrawingProj/DrawingProj-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		9BB0176015E216D000133D10 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "DrawingProj/DrawingProj-Prefix.pch";
+				INFOPLIST_FILE = "DrawingProj/DrawingProj-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		9BB0173A15E216D000133D10 /* Build configuration list for PBXProject "DrawingProj" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9BB0175C15E216D000133D10 /* Debug */,
+				9BB0175D15E216D000133D10 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9BB0175E15E216D000133D10 /* Build configuration list for PBXNativeTarget "DrawingProj" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9BB0175F15E216D000133D10 /* Debug */,
+				9BB0176015E216D000133D10 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 9BB0173715E216D000133D10 /* Project object */;
+}
