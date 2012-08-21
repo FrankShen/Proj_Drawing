@@ -28,7 +28,7 @@
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
-    return YES;
+    return UIInterfaceOrientationLandscapeLeft;
 }
 
 @end
