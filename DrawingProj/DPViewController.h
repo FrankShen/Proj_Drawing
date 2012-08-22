@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "DPAppDelegate.h"
+#import "GlobalVariable.h"
 @interface DPViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UIButton *serverButton;
+@property (weak, nonatomic) IBOutlet UIButton *clientButton;
 
 @end

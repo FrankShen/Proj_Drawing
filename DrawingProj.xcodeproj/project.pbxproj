@@ -12,6 +12,11 @@
 		9B26068F15E32AB900CD59EC /* button_client_pressed_on.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B26068A15E32AB900CD59EC /* button_client_pressed_on.png */; };
 		9B26069015E32AB900CD59EC /* button_server.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B26068B15E32AB900CD59EC /* button_server.png */; };
 		9B26069115E32AB900CD59EC /* button_server_pressed_on.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B26068C15E32AB900CD59EC /* button_server_pressed_on.png */; };
+		9B26069515E3300900CD59EC /* GlobalVariable.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B26069415E3300900CD59EC /* GlobalVariable.m */; };
+		9B26069915E3307D00CD59EC /* GCDAsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B26069815E3307D00CD59EC /* GCDAsyncSocket.m */; };
+		9B26069B15E334F100CD59EC /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B26069A15E334F100CD59EC /* CFNetwork.framework */; };
+		9B26069D15E334F600CD59EC /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B26069C15E334F600CD59EC /* Security.framework */; };
+		9B2606AB15E3BDF000CD59EC /* Default-Landscape~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B2606AA15E3BDF000CD59EC /* Default-Landscape~ipad.png */; };
 		9BB0174515E216D000133D10 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BB0174415E216D000133D10 /* UIKit.framework */; };
 		9BB0174715E216D000133D10 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BB0174615E216D000133D10 /* Foundation.framework */; };
 		9BB0174915E216D000133D10 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BB0174815E216D000133D10 /* CoreGraphics.framework */; };
@@ -28,6 +33,13 @@
 		9B26068A15E32AB900CD59EC /* button_client_pressed_on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_client_pressed_on.png; sourceTree = "<group>"; };
 		9B26068B15E32AB900CD59EC /* button_server.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_server.png; sourceTree = "<group>"; };
 		9B26068C15E32AB900CD59EC /* button_server_pressed_on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_server_pressed_on.png; sourceTree = "<group>"; };
+		9B26069315E3300900CD59EC /* GlobalVariable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlobalVariable.h; sourceTree = "<group>"; };
+		9B26069415E3300900CD59EC /* GlobalVariable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GlobalVariable.m; sourceTree = "<group>"; };
+		9B26069715E3307D00CD59EC /* GCDAsyncSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDAsyncSocket.h; sourceTree = "<group>"; };
+		9B26069815E3307D00CD59EC /* GCDAsyncSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDAsyncSocket.m; sourceTree = "<group>"; };
+		9B26069A15E334F100CD59EC /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		9B26069C15E334F600CD59EC /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		9B2606AA15E3BDF000CD59EC /* Default-Landscape~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-Landscape~ipad.png"; path = "../../Default-Landscape~ipad.png"; sourceTree = "<group>"; };
 		9BB0174015E216D000133D10 /* DrawingProj.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DrawingProj.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BB0174415E216D000133D10 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		9BB0174615E216D000133D10 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -48,6 +60,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9B26069D15E334F600CD59EC /* Security.framework in Frameworks */,
+				9B26069B15E334F100CD59EC /* CFNetwork.framework in Frameworks */,
 				9BB0174515E216D000133D10 /* UIKit.framework in Frameworks */,
 				9BB0174715E216D000133D10 /* Foundation.framework in Frameworks */,
 				9BB0174915E216D000133D10 /* CoreGraphics.framework in Frameworks */,
@@ -60,6 +74,7 @@
 		9B26068715E32AB900CD59EC /* GUI */ = {
 			isa = PBXGroup;
 			children = (
+				9B2606AA15E3BDF000CD59EC /* Default-Landscape~ipad.png */,
 				9B26068815E32AB900CD59EC /* background.png */,
 				9B26068915E32AB900CD59EC /* button_client.png */,
 				9B26068A15E32AB900CD59EC /* button_client_pressed_on.png */,
@@ -67,6 +82,15 @@
 				9B26068C15E32AB900CD59EC /* button_server_pressed_on.png */,
 			);
 			path = GUI;
+			sourceTree = "<group>";
+		};
+		9B26069615E3307D00CD59EC /* GCDAsyncSocket */ = {
+			isa = PBXGroup;
+			children = (
+				9B26069715E3307D00CD59EC /* GCDAsyncSocket.h */,
+				9B26069815E3307D00CD59EC /* GCDAsyncSocket.m */,
+			);
+			path = GCDAsyncSocket;
 			sourceTree = "<group>";
 		};
 		9BB0173515E216D000133D10 = {
@@ -89,6 +113,8 @@
 		9BB0174315E216D000133D10 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9B26069C15E334F600CD59EC /* Security.framework */,
+				9B26069A15E334F100CD59EC /* CFNetwork.framework */,
 				9BB0174415E216D000133D10 /* UIKit.framework */,
 				9BB0174615E216D000133D10 /* Foundation.framework */,
 				9BB0174815E216D000133D10 /* CoreGraphics.framework */,
@@ -99,7 +125,10 @@
 		9BB0174A15E216D000133D10 /* DrawingProj */ = {
 			isa = PBXGroup;
 			children = (
+				9B26069615E3307D00CD59EC /* GCDAsyncSocket */,
 				9B26068715E32AB900CD59EC /* GUI */,
+				9B26069315E3300900CD59EC /* GlobalVariable.h */,
+				9B26069415E3300900CD59EC /* GlobalVariable.m */,
 				9BB0175315E216D000133D10 /* DPAppDelegate.h */,
 				9BB0175415E216D000133D10 /* DPAppDelegate.m */,
 				9BB0175615E216D000133D10 /* MainStoryboard.storyboard */,
@@ -180,6 +209,7 @@
 				9B26068F15E32AB900CD59EC /* button_client_pressed_on.png in Resources */,
 				9B26069015E32AB900CD59EC /* button_server.png in Resources */,
 				9B26069115E32AB900CD59EC /* button_server_pressed_on.png in Resources */,
+				9B2606AB15E3BDF000CD59EC /* Default-Landscape~ipad.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -193,6 +223,8 @@
 				9BB0175115E216D000133D10 /* main.m in Sources */,
 				9BB0175515E216D000133D10 /* DPAppDelegate.m in Sources */,
 				9BB0175B15E216D000133D10 /* DPViewController.m in Sources */,
+				9B26069515E3300900CD59EC /* GlobalVariable.m in Sources */,
+				9B26069915E3307D00CD59EC /* GCDAsyncSocket.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

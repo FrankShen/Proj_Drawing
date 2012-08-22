@@ -7,9 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "GlobalVariable.h"
+@class GlobalVariable;
 @interface DPAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
+
+@property (strong, nonatomic) GlobalVariable *globalVairable;
+
+
 
 @end

@@ -9,6 +9,14 @@
 #import "DPAppDelegate.h"
 
 @implementation DPAppDelegate
+@synthesize globalVairable = _globalVairable;
+
+- (GlobalVariable *)globalVairable
+{
+    if (!_globalVairable)
+        _globalVairable = [[GlobalVariable alloc] init];
+    return _globalVairable;
+}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -42,5 +50,6 @@
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
+
 
 @end
