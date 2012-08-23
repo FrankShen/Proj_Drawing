@@ -17,6 +17,7 @@
 		9B26069B15E334F100CD59EC /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B26069A15E334F100CD59EC /* CFNetwork.framework */; };
 		9B26069D15E334F600CD59EC /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B26069C15E334F600CD59EC /* Security.framework */; };
 		9B2606AB15E3BDF000CD59EC /* Default-Landscape~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B2606AA15E3BDF000CD59EC /* Default-Landscape~ipad.png */; };
+		9B3A4EE415E65C7A00F21429 /* clientConnectingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B3A4EE315E65C7A00F21429 /* clientConnectingViewController.m */; };
 		9BB0174515E216D000133D10 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BB0174415E216D000133D10 /* UIKit.framework */; };
 		9BB0174715E216D000133D10 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BB0174615E216D000133D10 /* Foundation.framework */; };
 		9BB0174915E216D000133D10 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BB0174815E216D000133D10 /* CoreGraphics.framework */; };
@@ -25,6 +26,11 @@
 		9BB0175515E216D000133D10 /* DPAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BB0175415E216D000133D10 /* DPAppDelegate.m */; };
 		9BB0175815E216D000133D10 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BB0175615E216D000133D10 /* MainStoryboard.storyboard */; };
 		9BB0175B15E216D000133D10 /* DPViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BB0175A15E216D000133D10 /* DPViewController.m */; };
+		9BB65D5E15E646ED00A9B347 /* serverConnectingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BB65D5D15E646ED00A9B347 /* serverConnectingViewController.m */; };
+		9BB65D6215E64A3800A9B347 /* button_connecting.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BB65D6015E64A3800A9B347 /* button_connecting.png */; };
+		9BB65D6315E64A3800A9B347 /* button_connecting_pressed_on.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BB65D6115E64A3800A9B347 /* button_connecting_pressed_on.png */; };
+		9BB65D6D15E650BE00A9B347 /* button_back.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BB65D6C15E650BE00A9B347 /* button_back.png */; };
+		9BB65D6F15E655E400A9B347 /* background_deviceNumber.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BB65D6E15E655E400A9B347 /* background_deviceNumber.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +46,8 @@
 		9B26069A15E334F100CD59EC /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		9B26069C15E334F600CD59EC /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		9B2606AA15E3BDF000CD59EC /* Default-Landscape~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-Landscape~ipad.png"; path = "../../Default-Landscape~ipad.png"; sourceTree = "<group>"; };
+		9B3A4EE215E65C7A00F21429 /* clientConnectingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = clientConnectingViewController.h; sourceTree = "<group>"; };
+		9B3A4EE315E65C7A00F21429 /* clientConnectingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = clientConnectingViewController.m; sourceTree = "<group>"; };
 		9BB0174015E216D000133D10 /* DrawingProj.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DrawingProj.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BB0174415E216D000133D10 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		9BB0174615E216D000133D10 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -53,6 +61,12 @@
 		9BB0175715E216D000133D10 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		9BB0175915E216D000133D10 /* DPViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DPViewController.h; sourceTree = "<group>"; };
 		9BB0175A15E216D000133D10 /* DPViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DPViewController.m; sourceTree = "<group>"; };
+		9BB65D5C15E646ED00A9B347 /* serverConnectingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = serverConnectingViewController.h; sourceTree = "<group>"; };
+		9BB65D5D15E646ED00A9B347 /* serverConnectingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = serverConnectingViewController.m; sourceTree = "<group>"; };
+		9BB65D6015E64A3800A9B347 /* button_connecting.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_connecting.png; sourceTree = "<group>"; };
+		9BB65D6115E64A3800A9B347 /* button_connecting_pressed_on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_connecting_pressed_on.png; sourceTree = "<group>"; };
+		9BB65D6C15E650BE00A9B347 /* button_back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_back.png; sourceTree = "<group>"; };
+		9BB65D6E15E655E400A9B347 /* background_deviceNumber.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background_deviceNumber.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,8 +88,12 @@
 		9B26068715E32AB900CD59EC /* GUI */ = {
 			isa = PBXGroup;
 			children = (
+				9BB65D6C15E650BE00A9B347 /* button_back.png */,
+				9BB65D6015E64A3800A9B347 /* button_connecting.png */,
+				9BB65D6115E64A3800A9B347 /* button_connecting_pressed_on.png */,
 				9B2606AA15E3BDF000CD59EC /* Default-Landscape~ipad.png */,
 				9B26068815E32AB900CD59EC /* background.png */,
+				9BB65D6E15E655E400A9B347 /* background_deviceNumber.png */,
 				9B26068915E32AB900CD59EC /* button_client.png */,
 				9B26068A15E32AB900CD59EC /* button_client_pressed_on.png */,
 				9B26068B15E32AB900CD59EC /* button_server.png */,
@@ -132,6 +150,10 @@
 				9BB0175315E216D000133D10 /* DPAppDelegate.h */,
 				9BB0175415E216D000133D10 /* DPAppDelegate.m */,
 				9BB0175615E216D000133D10 /* MainStoryboard.storyboard */,
+				9B3A4EE215E65C7A00F21429 /* clientConnectingViewController.h */,
+				9B3A4EE315E65C7A00F21429 /* clientConnectingViewController.m */,
+				9BB65D5C15E646ED00A9B347 /* serverConnectingViewController.h */,
+				9BB65D5D15E646ED00A9B347 /* serverConnectingViewController.m */,
 				9BB0175915E216D000133D10 /* DPViewController.h */,
 				9BB0175A15E216D000133D10 /* DPViewController.m */,
 				9BB0174B15E216D000133D10 /* Supporting Files */,
@@ -210,6 +232,10 @@
 				9B26069015E32AB900CD59EC /* button_server.png in Resources */,
 				9B26069115E32AB900CD59EC /* button_server_pressed_on.png in Resources */,
 				9B2606AB15E3BDF000CD59EC /* Default-Landscape~ipad.png in Resources */,
+				9BB65D6215E64A3800A9B347 /* button_connecting.png in Resources */,
+				9BB65D6315E64A3800A9B347 /* button_connecting_pressed_on.png in Resources */,
+				9BB65D6D15E650BE00A9B347 /* button_back.png in Resources */,
+				9BB65D6F15E655E400A9B347 /* background_deviceNumber.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -225,6 +251,8 @@
 				9BB0175B15E216D000133D10 /* DPViewController.m in Sources */,
 				9B26069515E3300900CD59EC /* GlobalVariable.m in Sources */,
 				9B26069915E3307D00CD59EC /* GCDAsyncSocket.m in Sources */,
+				9BB65D5E15E646ED00A9B347 /* serverConnectingViewController.m in Sources */,
+				9B3A4EE415E65C7A00F21429 /* clientConnectingViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

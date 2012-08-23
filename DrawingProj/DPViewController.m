@@ -51,6 +51,7 @@
         self.clientButton.frame = CGRectMake(self.clientButton.frame.origin.x, 768, 304, 310);
     }completion:^(BOOL isFinished){
         NSLog(@"Server");
+        [self performSegueWithIdentifier:@"chooseServer" sender:self];
     }];
 }
 
@@ -61,6 +62,7 @@
         self.clientButton.frame = CGRectMake(self.clientButton.frame.origin.x, 768, 304, 310);
     }completion:^(BOOL isFinished){
         NSLog(@"Client");
+        [self performSegueWithIdentifier:@"chooseClient" sender:self];
     }];
 }
 

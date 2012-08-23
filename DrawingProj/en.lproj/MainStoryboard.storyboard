@@ -57,16 +57,190 @@
                     <connections>
                         <outlet property="clientButton" destination="PAp-ny-tlG" id="Fdn-FY-1VK"/>
                         <outlet property="serverButton" destination="yc2-Xl-WaG" id="eXi-Dp-Spn"/>
+                        <segue destination="21J-DY-VuT" kind="modal" identifier="chooseServer" modalTransitionStyle="crossDissolve" id="an2-mi-inq"/>
+                        <segue destination="jvU-h0-ulo" kind="modal" identifier="chooseClient" modalTransitionStyle="crossDissolve" id="y64-Cv-qH4"/>
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="-472" y="-193"/>
+            <point key="canvasLocation" x="-2733" y="-929"/>
+        </scene>
+        <!--Client Connecting View Controller-->
+        <scene sceneID="13c-q2-DZv">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MhV-6U-xJW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="jvU-h0-ulo" customClass="clientConnectingViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="uXq-7A-w4L">
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="background.png" id="iPX-4t-vFq">
+                                <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" red="0.97802191910000003" green="1" blue="0.99953368740000004" alpha="1" colorSpace="calibratedRGB"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Yo0-rw-1x8">
+                                <rect key="frame" x="20" y="705" width="53" height="43"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" backgroundImage="button_back.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="backButtonPressed:" destination="jvU-h0-ulo" eventType="touchUpInside" id="5i6-qW-Yvt"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="请输入对方的设备号" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="CTL-rY-tbJ">
+                                <rect key="frame" x="347" y="127" width="331" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <size key="shadowOffset" width="0.0" height="1"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="请确保设备处于同一WiFi网络下" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="2pp-aW-dfq">
+                                <rect key="frame" x="410" y="611" width="204" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="q4O-3b-pin">
+                                <rect key="frame" x="378" y="497" width="268" height="106"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="26"/>
+                                <size key="titleShadowOffset" width="0.0" height="1"/>
+                                <state key="normal" title="连接" backgroundImage="button_connecting.png">
+                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted" backgroundImage="button_connecting_pressed_on.png">
+                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="connectButtonPressed:" destination="jvU-h0-ulo" eventType="touchUpInside" id="c4a-oa-f5c"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" adjustsFontSizeToFit="NO" minimumFontSize="150" background="background_deviceNumber.png" id="iVi-rc-naB">
+                                <rect key="frame" x="322" y="183" width="380" height="220"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="150"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    </view>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    <connections>
+                        <outlet property="deviceID" destination="iVi-rc-naB" id="OHD-HN-VLz"/>
+                        <segue destination="2" kind="modal" identifier="clientBackToMain" modalTransitionStyle="crossDissolve" id="eHv-hH-ZVp"/>
+                    </connections>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="-2740" y="146"/>
+        </scene>
+        <!--Server Connecting View Controller-->
+        <scene sceneID="tdf-MJ-M8z">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xRv-eh-lsR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="21J-DY-VuT" customClass="serverConnectingViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Mzk-a6-GMF">
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="background.png" id="DkK-eD-DXe">
+                                <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" red="0.97802191907240843" green="1" blue="0.99953368738659898" alpha="1" colorSpace="calibratedRGB"/>
+                            </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="您的设备号" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="H0i-KD-exD">
+                                <rect key="frame" x="435" y="127" width="154" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <size key="shadowOffset" width="0.0" height="1"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="000" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="F8y-we-jey">
+                                <rect key="frame" x="322" y="183" width="380" height="220"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="150"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" red="0.96613875680000005" green="0.96613875680000005" blue="0.96613875680000005" alpha="1" colorSpace="calibratedRGB"/>
+                                <size key="shadowOffset" width="0.0" height="1"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="请确保设备处于同一WiFi网络下" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="I6I-6J-8U4">
+                                <rect key="frame" x="410" y="611" width="204" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="nCA-Nc-bj0">
+                                <rect key="frame" x="378" y="497" width="268" height="106"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="26"/>
+                                <size key="titleShadowOffset" width="0.0" height="1"/>
+                                <state key="normal" title="创建" backgroundImage="button_connecting.png">
+                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted" backgroundImage="button_connecting_pressed_on.png">
+                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="createButtonPressed:" destination="21J-DY-VuT" eventType="touchUpInside" id="65P-ks-83J"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="V7c-W0-Bxf">
+                                <rect key="frame" x="20" y="705" width="53" height="43"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" backgroundImage="button_back.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="backButtonPressed:" destination="21J-DY-VuT" eventType="touchUpInside" id="0xE-sK-Mqu"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    </view>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    <connections>
+                        <outlet property="deviceID" destination="F8y-we-jey" id="pum-qo-98E"/>
+                        <segue destination="2" kind="modal" identifier="serverBackToMain" modalTransitionStyle="crossDissolve" id="W78-Er-qXc"/>
+                    </connections>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="-2733" y="-2167"/>
         </scene>
     </scenes>
     <resources>
         <image name="background.png" width="1024" height="768"/>
+        <image name="background_deviceNumber.png" width="380" height="220"/>
+        <image name="button_back.png" width="53" height="43"/>
         <image name="button_client.png" width="304" height="310"/>
         <image name="button_client_pressed_on.png" width="304" height="310"/>
+        <image name="button_connecting.png" width="268" height="106"/>
+        <image name="button_connecting_pressed_on.png" width="268" height="106"/>
         <image name="button_server.png" width="304" height="310"/>
         <image name="button_server_pressed_on.png" width="304" height="310"/>
     </resources>
@@ -74,10 +248,24 @@
         <class className="DPViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/DPViewController.h"/>
             <relationships>
-                <relationship kind="action" name="clientButtonPressed:"/>
-                <relationship kind="action" name="serverButtonPressed:"/>
                 <relationship kind="outlet" name="clientButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="serverButton" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="clientConnectingViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/clientConnectingViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="backButtonPressed:"/>
+                <relationship kind="action" name="connectButtonPressed:"/>
+                <relationship kind="outlet" name="deviceID" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="serverConnectingViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/serverConnectingViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="backButtonPressed:"/>
+                <relationship kind="action" name="createButtonPressed:"/>
+                <relationship kind="outlet" name="deviceID" candidateClass="UILabel"/>
             </relationships>
         </class>
     </classes>
@@ -86,4 +274,7 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="eHv-hH-ZVp"/>
+    </inferredMetricsTieBreakers>
 </document>
