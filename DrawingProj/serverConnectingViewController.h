@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface serverConnectingViewController : UIViewController
+#import "GlobalVariable.h"
+#import "MBProgressHUD/MBProgressHUD.h"
+@interface serverConnectingViewController : UIViewController<MBProgressHUDDelegate, UIAlertViewDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *deviceID;
-
+@property (nonatomic, strong) MBProgressHUD *HUD;
 @end

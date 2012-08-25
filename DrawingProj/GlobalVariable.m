@@ -13,7 +13,11 @@
 @synthesize socketPool = _socketPool;
 @synthesize dataPool = _dataPool;
 @synthesize localAddress = _localAddress;
-
+@synthesize localLAN = _localLAN;
+@synthesize userType = _userType;
+@synthesize networkStat = _networkStat;
+@synthesize clientConnectingDelegate = _clientConnectingDelegate;
+@synthesize serverConnectingDelegate = _serverConnectingDelegate;
 - (GCDAsyncSocket *)selfSocket
 {
     if (!_selfSocket)
@@ -21,15 +25,15 @@
     return _selfSocket;
 }
 
-- (NSArray *)socketPool{
+- (NSMutableDictionary *)socketPool{
     if (!_socketPool)
-        _socketPool = [[NSArray alloc] init];
+        _socketPool = [[NSMutableDictionary alloc] init];
     return _socketPool;
 }
 
-- (NSArray *)dataPool{
+- (NSMutableDictionary *)dataPool{
     if (!_dataPool)
-        _dataPool = [[NSArray alloc] init];
+        _dataPool = [[NSMutableDictionary alloc] init];
     return _dataPool;
 }
 
@@ -37,6 +41,11 @@
 {
     self = [super init];
     self.localAddress = [GlobalVariable getLocalAddress:@"en"];
+    NSArray *temp = [self.localAddress componentsSeparatedByString:@"."];
+    self.localLAN = [NSString stringWithFormat:@"%@.%@.%@.", [temp objectAtIndex:0], [temp objectAtIndex:1], [temp objectAtIndex:2]];
+    self.deviceID = [temp objectAtIndex:3];
+    NSLog(@"%@", self.localLAN);
+    NSLog(@"%@", self.deviceID);
     return self;
 }
 
@@ -72,4 +81,74 @@
     return address;
 }
 
++ (GlobalVariable *)getGlobalVariable
+{
+    return ((DPAppDelegate *)[[UIApplication sharedApplication] delegate]).globalVairable;
+}
+
+- (void)connectToDevice:(NSString *)device
+{
+    sleep(1);
+    NSError *err = nil;
+    [self.selfSocket disconnect];
+    self.networkStat = NETWORK_STAT_NORMAL;
+    [self.socketPool removeAllObjects];
+    [self.dataPool removeAllObjects];
+    if([self.selfSocket connectToHost:[NSString stringWithFormat:@"%@%@", self.localLAN, device] onPort:1992 withTimeout:1.5 error:&err]){
+        dispatch_queue_t statQueue = dispatch_queue_create("Stat Queue", NULL);
+        dispatch_async(statQueue, ^{
+            sleep(2.5);
+            if (self.networkStat != NETWORK_STAT_CONNECT){
+                self.networkStat = NETWORK_STAT_ERROR;
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [self.clientConnectingDelegate connectToHostFailed];
+                });
+            }
+        });
+    } else {
+        self.networkStat = NETWORK_STAT_ERROR;
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.clientConnectingDelegate connectToHostFailed];
+        });
+    }
+    
+}
+
+- (void)createNewMeeting
+{
+    sleep(1);
+    NSError *err = nil;
+    [self.selfSocket disconnect];
+    self.networkStat = NETWORK_STAT_NORMAL;
+    [self.socketPool removeAllObjects];
+    [self.dataPool removeAllObjects];
+    if ([self.selfSocket acceptOnPort:1992 error:&err]){
+        
+        self.networkStat = NETWORK_STAT_CONNECT;
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.serverConnectingDelegate createPortSuccessed];
+        });
+        
+    } else {
+        self.networkStat = NETWORK_STAT_ERROR;
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.serverConnectingDelegate createPortFailed];
+        });
+    }
+}
+
+#pragma mark Delegate
+
+- (void)socket:(GCDAsyncSocket *)sock didAcceptNewSocket:(GCDAsyncSocket *)newSocket
+{
+    [self.socketPool setObject:newSocket forKey:newSocket.connectedHost];
+}
+
+- (void)socket:(GCDAsyncSocket *)sock didConnectToHost:(NSString *)host port:(uint16_t)port
+{
+    self.networkStat = NETWORK_STAT_CONNECT;
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.clientConnectingDelegate connectToHostSuccessed];
+    });
+}
 @end

@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface clientConnectingViewController : UIViewController <UITextFieldDelegate>
+#import "GlobalVariable.h"
+#import "MBProgressHUD/MBProgressHUD.h"
+@interface clientConnectingViewController : UIViewController <UITextFieldDelegate, MBProgressHUDDelegate, UIAlertViewDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *deviceID;
-
+@property (strong, nonatomic) MBProgressHUD *HUD;
 @end

@@ -51,6 +51,7 @@
         self.clientButton.frame = CGRectMake(self.clientButton.frame.origin.x, 768, 304, 310);
     }completion:^(BOOL isFinished){
         NSLog(@"Server");
+        [GlobalVariable getGlobalVariable].userType = USER_TYPE_SERVER;
         [self performSegueWithIdentifier:@"chooseServer" sender:self];
     }];
 }
@@ -62,6 +63,7 @@
         self.clientButton.frame = CGRectMake(self.clientButton.frame.origin.x, 768, 304, 310);
     }completion:^(BOOL isFinished){
         NSLog(@"Client");
+        [GlobalVariable getGlobalVariable].userType = USER_TYPE_CLIENT;
         [self performSegueWithIdentifier:@"chooseClient" sender:self];
     }];
 }

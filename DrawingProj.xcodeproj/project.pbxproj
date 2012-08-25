@@ -31,6 +31,7 @@
 		9BB65D6315E64A3800A9B347 /* button_connecting_pressed_on.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BB65D6115E64A3800A9B347 /* button_connecting_pressed_on.png */; };
 		9BB65D6D15E650BE00A9B347 /* button_back.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BB65D6C15E650BE00A9B347 /* button_back.png */; };
 		9BB65D6F15E655E400A9B347 /* background_deviceNumber.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BB65D6E15E655E400A9B347 /* background_deviceNumber.png */; };
+		9BEF845715E8C70D002362ED /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BEF845615E8C70D002362ED /* MBProgressHUD.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -67,6 +68,8 @@
 		9BB65D6115E64A3800A9B347 /* button_connecting_pressed_on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_connecting_pressed_on.png; sourceTree = "<group>"; };
 		9BB65D6C15E650BE00A9B347 /* button_back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_back.png; sourceTree = "<group>"; };
 		9BB65D6E15E655E400A9B347 /* background_deviceNumber.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background_deviceNumber.png; sourceTree = "<group>"; };
+		9BEF845515E8C70D002362ED /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		9BEF845615E8C70D002362ED /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,6 +146,7 @@
 		9BB0174A15E216D000133D10 /* DrawingProj */ = {
 			isa = PBXGroup;
 			children = (
+				9BEF845415E8C70D002362ED /* MBProgressHUD */,
 				9B26069615E3307D00CD59EC /* GCDAsyncSocket */,
 				9B26068715E32AB900CD59EC /* GUI */,
 				9B26069315E3300900CD59EC /* GlobalVariable.h */,
@@ -170,6 +174,15 @@
 				9BB0175215E216D000133D10 /* DrawingProj-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		9BEF845415E8C70D002362ED /* MBProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				9BEF845515E8C70D002362ED /* MBProgressHUD.h */,
+				9BEF845615E8C70D002362ED /* MBProgressHUD.m */,
+			);
+			path = MBProgressHUD;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -253,6 +266,7 @@
 				9B26069915E3307D00CD59EC /* GCDAsyncSocket.m in Sources */,
 				9BB65D5E15E646ED00A9B347 /* serverConnectingViewController.m in Sources */,
 				9B3A4EE415E65C7A00F21429 /* clientConnectingViewController.m in Sources */,
+				9BEF845715E8C70D002362ED /* MBProgressHUD.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
