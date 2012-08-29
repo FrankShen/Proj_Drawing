@@ -55,6 +55,10 @@
 		9BEFE93515EBC5D300A91218 /* no_undo.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BEFE93415EBC5D300A91218 /* no_undo.png */; };
 		9BF516BB15EDD50C002E9CB3 /* serverDrawingSettingTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BF516BA15EDD50C002E9CB3 /* serverDrawingSettingTableViewController.m */; };
 		9BF516C515EDD649002E9CB3 /* serverDrawingImageLibraryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BF516C415EDD649002E9CB3 /* serverDrawingImageLibraryViewController.m */; };
+		9BF516D615EE48FB002E9CB3 /* setting_center.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BF516D415EE48FB002E9CB3 /* setting_center.png */; };
+		9BF516D715EE48FB002E9CB3 /* setting_center_new.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BF516D515EE48FB002E9CB3 /* setting_center_new.png */; };
+		9BF516DA15EE4D5F002E9CB3 /* ImageLibraryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BF516D915EE4D5F002E9CB3 /* ImageLibraryTableViewCell.m */; };
+		9BF516DC15EE5620002E9CB3 /* iconx72.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BF516DB15EE5620002E9CB3 /* iconx72.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -86,7 +90,7 @@
 		9B928F0215EA11DB007A1E90 /* ServerDrawingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServerDrawingViewController.m; sourceTree = "<group>"; };
 		9B928F3715EA6099007A1E90 /* DrawingPadView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DrawingPadView.h; sourceTree = "<group>"; };
 		9B928F3815EA6099007A1E90 /* DrawingPadView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DrawingPadView.m; sourceTree = "<group>"; };
-		9BB0174015E216D000133D10 /* DrawingProj.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DrawingProj.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9BB0174015E216D000133D10 /* 分享画板.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "分享画板.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BB0174415E216D000133D10 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		9BB0174615E216D000133D10 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		9BB0174815E216D000133D10 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -126,6 +130,11 @@
 		9BF516BA15EDD50C002E9CB3 /* serverDrawingSettingTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = serverDrawingSettingTableViewController.m; sourceTree = "<group>"; };
 		9BF516C315EDD649002E9CB3 /* serverDrawingImageLibraryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = serverDrawingImageLibraryViewController.h; sourceTree = "<group>"; };
 		9BF516C415EDD649002E9CB3 /* serverDrawingImageLibraryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = serverDrawingImageLibraryViewController.m; sourceTree = "<group>"; };
+		9BF516D415EE48FB002E9CB3 /* setting_center.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = setting_center.png; sourceTree = "<group>"; };
+		9BF516D515EE48FB002E9CB3 /* setting_center_new.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = setting_center_new.png; sourceTree = "<group>"; };
+		9BF516D815EE4D5F002E9CB3 /* ImageLibraryTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageLibraryTableViewCell.h; sourceTree = "<group>"; };
+		9BF516D915EE4D5F002E9CB3 /* ImageLibraryTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageLibraryTableViewCell.m; sourceTree = "<group>"; };
+		9BF516DB15EE5620002E9CB3 /* iconx72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iconx72.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,6 +179,8 @@
 				9B26068A15E32AB900CD59EC /* button_client_pressed_on.png */,
 				9B26068B15E32AB900CD59EC /* button_server.png */,
 				9B26068C15E32AB900CD59EC /* button_server_pressed_on.png */,
+				9BF516D415EE48FB002E9CB3 /* setting_center.png */,
+				9BF516D515EE48FB002E9CB3 /* setting_center_new.png */,
 			);
 			path = GUI;
 			sourceTree = "<group>";
@@ -215,6 +226,8 @@
 				9BF516C415EDD649002E9CB3 /* serverDrawingImageLibraryViewController.m */,
 				9BF516B915EDD50C002E9CB3 /* serverDrawingSettingTableViewController.h */,
 				9BF516BA15EDD50C002E9CB3 /* serverDrawingSettingTableViewController.m */,
+				9BF516D815EE4D5F002E9CB3 /* ImageLibraryTableViewCell.h */,
+				9BF516D915EE4D5F002E9CB3 /* ImageLibraryTableViewCell.m */,
 			);
 			name = ServerClass;
 			sourceTree = "<group>";
@@ -222,6 +235,7 @@
 		9BB0173515E216D000133D10 = {
 			isa = PBXGroup;
 			children = (
+				9BF516DB15EE5620002E9CB3 /* iconx72.png */,
 				9BB0174A15E216D000133D10 /* DrawingProj */,
 				9BB0174315E216D000133D10 /* Frameworks */,
 				9BB0174115E216D000133D10 /* Products */,
@@ -231,7 +245,7 @@
 		9BB0174115E216D000133D10 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				9BB0174015E216D000133D10 /* DrawingProj.app */,
+				9BB0174015E216D000133D10 /* 分享画板.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -307,7 +321,7 @@
 			);
 			name = DrawingProj;
 			productName = DrawingProj;
-			productReference = 9BB0174015E216D000133D10 /* DrawingProj.app */;
+			productReference = 9BB0174015E216D000133D10 /* 分享画板.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -367,6 +381,9 @@
 				9BEFE93515EBC5D300A91218 /* no_undo.png in Resources */,
 				9B454CB615EC5DA700932D97 /* client_tool_box.png in Resources */,
 				9B454CB715EC5DA700932D97 /* pull.png in Resources */,
+				9BF516D615EE48FB002E9CB3 /* setting_center.png in Resources */,
+				9BF516D715EE48FB002E9CB3 /* setting_center_new.png in Resources */,
+				9BF516DC15EE5620002E9CB3 /* iconx72.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -395,6 +412,7 @@
 				9B454CD415ECEA3C00932D97 /* clientDrawingSettingTableViewController.m in Sources */,
 				9BF516BB15EDD50C002E9CB3 /* serverDrawingSettingTableViewController.m in Sources */,
 				9BF516C515EDD649002E9CB3 /* serverDrawingImageLibraryViewController.m in Sources */,
+				9BF516DA15EE4D5F002E9CB3 /* ImageLibraryTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -477,7 +495,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DrawingProj/DrawingProj-Prefix.pch";
 				INFOPLIST_FILE = "DrawingProj/DrawingProj-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "分享画板";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -488,7 +506,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DrawingProj/DrawingProj-Prefix.pch";
 				INFOPLIST_FILE = "DrawingProj/DrawingProj-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "分享画板";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

@@ -45,6 +45,13 @@
     return _dataLengthPool;
 }
 
+- (NSMutableArray *)imageLibrary
+{
+    if (!_imageLibrary)
+        _imageLibrary = [[NSMutableArray alloc] init];
+    return _imageLibrary;
+}
+
 - (GlobalVariable *)init
 {
     self = [super init];
@@ -106,6 +113,7 @@
     self.networkStat = NETWORK_STAT_NORMAL;
     [self.socketPool removeAllObjects];
     [self.dataPool removeAllObjects];
+    self.backupAddress = device;
     if([self.selfSocket connectToHost:[NSString stringWithFormat:@"%@%@", self.localLAN, device] onPort:1992 withTimeout:1.5 error:&err]){
         dispatch_queue_t statQueue = dispatch_queue_create("Stat Queue", NULL);
         dispatch_async(statQueue, ^{
@@ -190,7 +198,13 @@
             [sock readDataWithTimeout:-1 tag:IMAGE_SENDING];
         }else {
             NSLog(@"%d, %d", ((NSMutableData *)[self.dataPool objectForKey:sock.connectedHost]).length, [[self.dataLengthPool objectForKey:sock.connectedHost] intValue]);
-            [self.serverDrawingDelegate recievedImage:[UIImage imageWithData:[self.dataPool objectForKey:sock.connectedHost]]];
+            [self.imageLibrary insertObject:[UIImage imageWithData:[self.dataPool objectForKey:sock.connectedHost]] atIndex:0];
+            NSLog(@"%d",self.imageLibrary.count);
+            if (self.isAutoShow) {
+                [self.serverDrawingDelegate recievedImage:[UIImage imageWithData:[self.dataPool objectForKey:sock.connectedHost]]];
+            } else {
+                [self.serverDrawingDelegate newIncome];
+            }
             [sock writeData:nil withTimeout:-1 tag:SEND_SUCCESS];
             [sock readDataWithTimeout:-1 tag:INCOMING_SIGNAL];
         }

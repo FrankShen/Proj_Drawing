@@ -15,6 +15,7 @@
 @end
 
 @implementation ServerDrawingViewController
+@synthesize settingButton;
 @synthesize gestureView;
 @synthesize toolboxView;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -58,7 +59,8 @@
     self.toolboxView.markerButton.selected = YES;
     self.gestureView.drawingPadView.delegate = self;
     [GlobalVariable getGlobalVariable].serverDrawingDelegate = self;
-
+    [GlobalVariable getGlobalVariable].imageLibrary = [[NSMutableArray alloc] init];
+    
 }
 
 - (void)viewDidUnload
@@ -66,6 +68,7 @@
     [self setGestureView:nil];
     [self setToolboxView:nil];
     
+    [self setSettingButton:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
@@ -163,8 +166,9 @@
     }
 }
 
-- (IBAction)settingButtonPressed:(id)sender
+- (IBAction)settingButtonPressed:(UIButton *)sender
 {
+    [sender setImage:[UIImage imageNamed:@"setting_center.png"] forState:UIControlStateNormal];
     [self performSegueWithIdentifier:@"serverSetting" sender:self];
 }
 
@@ -191,6 +195,11 @@
 - (UIImage *)grabImage
 {
     return [self.gestureView.drawingPadView getCurrentPicture];
+}
+
+- (void)newIncome
+{
+    [self.settingButton setImage:[UIImage imageNamed:@"setting_center_new.png"] forState:UIControlStateNormal];
 }
 
 @end

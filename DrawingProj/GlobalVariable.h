@@ -36,7 +36,7 @@
 - (void)createPortFailed;
 
 - (void)recievedImage:(UIImage *)image;
-
+- (void)newIncome;
 - (UIImage *)grabImage;
 
 @end
@@ -47,9 +47,11 @@
 @property (nonatomic, strong) NSString *localAddress;
 @property (nonatomic, strong) NSString *localLAN;
 @property (nonatomic, strong) NSString *deviceID;
+@property (nonatomic, strong) NSString *backupAddress;
 @property (nonatomic, strong) NSMutableDictionary *socketPool;
 @property (nonatomic, strong) NSMutableDictionary *dataPool;
 @property (nonatomic, strong) NSMutableDictionary *dataLengthPool;
+@property (nonatomic, strong) NSMutableArray *imageLibrary;
 @property (nonatomic) int userType;
 @property (nonatomic) int networkStat;
 @property (nonatomic) BOOL isOverlay;

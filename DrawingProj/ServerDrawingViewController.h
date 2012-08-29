@@ -16,4 +16,5 @@
 @property (weak, nonatomic) IBOutlet serverDrawingGestureView *gestureView;
 @property (weak, nonatomic) IBOutlet serverDrawingToolboxView *toolboxView;
 @property (weak, nonatomic) UIPopoverController *popOver;
+@property (weak, nonatomic) IBOutlet UIButton *settingButton;
 @end

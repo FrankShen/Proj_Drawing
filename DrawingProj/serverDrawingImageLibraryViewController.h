@@ -8,5 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "serverDrawingSettingTableViewController.h"
-@interface serverDrawingImageLibraryViewController : UIViewController
+#import "GlobalVariable.h"
+#import "ImageLibraryTableViewCell.h"
+@interface serverDrawingImageLibraryViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
+@property (weak, nonatomic) IBOutlet UITableView *imageLibrary;
+
 @end

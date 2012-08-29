@@ -149,6 +149,9 @@
 
 - (IBAction)pullButtonPressed:(id)sender
 {
+    if (!([GlobalVariable getGlobalVariable].selfSocket.isConnected)){
+        [[GlobalVariable getGlobalVariable] connectToDevice:[GlobalVariable getGlobalVariable].backupAddress];
+    }
     [[GlobalVariable getGlobalVariable].selfSocket writeData:[@"PREPARE_FOR_PULL" dataUsingEncoding:NSUTF8StringEncoding] withTimeout:-1 tag:INCOMING_SIGNAL];
     [[GlobalVariable getGlobalVariable].selfSocket readDataWithTimeout:-1 tag:PREPARE_FOR_PULL];
 
@@ -223,6 +226,11 @@
 
 - (void)sendImage
 {
+    if (!([GlobalVariable getGlobalVariable].selfSocket.isConnected)){
+        NSLog(@"123");
+        [[GlobalVariable getGlobalVariable] connectToDevice:[GlobalVariable getGlobalVariable].backupAddress];
+    }
+    
     [GlobalVariable getGlobalVariable].imageToSend = [self.gestureView.drawingPadView getCurrentPicture];
     
     [[GlobalVariable getGlobalVariable].selfSocket writeData:[@"PREPARE_FOR_IMAGE" dataUsingEncoding:NSUTF8StringEncoding] withTimeout:-1 tag:INCOMING_SIGNAL];
