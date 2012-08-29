@@ -94,7 +94,7 @@
         
         [hud removeFromSuperview];
         hud = nil;
-        
+        [self performSegueWithIdentifier:@"serverConnectSucess" sender:self];
     } else if (stat == NETWORK_STAT_ERROR){
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"无法创建" message:@"请检查设备的网络状态" delegate:self cancelButtonTitle:@"知道了" otherButtonTitles:nil];
         [hud removeFromSuperview];
@@ -108,6 +108,13 @@
 {
     [alertView removeFromSuperview];
     alertView = nil;
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"serverConnectSucess"]){
+        //[self dismissModalViewControllerAnimated:YES];
+    }
 }
 
 @end

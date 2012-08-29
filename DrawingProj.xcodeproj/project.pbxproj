@@ -18,6 +18,12 @@
 		9B26069D15E334F600CD59EC /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B26069C15E334F600CD59EC /* Security.framework */; };
 		9B2606AB15E3BDF000CD59EC /* Default-Landscape~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B2606AA15E3BDF000CD59EC /* Default-Landscape~ipad.png */; };
 		9B3A4EE415E65C7A00F21429 /* clientConnectingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B3A4EE315E65C7A00F21429 /* clientConnectingViewController.m */; };
+		9B454CB615EC5DA700932D97 /* client_tool_box.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B454CB415EC5DA700932D97 /* client_tool_box.png */; };
+		9B454CB715EC5DA700932D97 /* pull.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B454CB515EC5DA700932D97 /* pull.png */; };
+		9B454CBE15EC5E3E00932D97 /* clientDrawingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B454CBD15EC5E3E00932D97 /* clientDrawingViewController.m */; };
+		9B454CC115EC5E5400932D97 /* clientDrawingGestureView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B454CC015EC5E5400932D97 /* clientDrawingGestureView.m */; };
+		9B454CC415EC5E6900932D97 /* clientDrawingToolboxView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B454CC315EC5E6900932D97 /* clientDrawingToolboxView.m */; };
+		9B454CD415ECEA3C00932D97 /* clientDrawingSettingTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B454CD315ECEA3C00932D97 /* clientDrawingSettingTableViewController.m */; };
 		9B928F0315EA11DB007A1E90 /* ServerDrawingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B928F0215EA11DB007A1E90 /* ServerDrawingViewController.m */; };
 		9BB0174515E216D000133D10 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BB0174415E216D000133D10 /* UIKit.framework */; };
 		9BB0174715E216D000133D10 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BB0174615E216D000133D10 /* Foundation.framework */; };
@@ -47,6 +53,8 @@
 		9BEFE93215EBBCD400A91218 /* trash.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BEFE92915EBBCD400A91218 /* trash.png */; };
 		9BEFE93315EBBCD400A91218 /* undo.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BEFE92A15EBBCD400A91218 /* undo.png */; };
 		9BEFE93515EBC5D300A91218 /* no_undo.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BEFE93415EBC5D300A91218 /* no_undo.png */; };
+		9BF516BB15EDD50C002E9CB3 /* serverDrawingSettingTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BF516BA15EDD50C002E9CB3 /* serverDrawingSettingTableViewController.m */; };
+		9BF516C515EDD649002E9CB3 /* serverDrawingImageLibraryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BF516C415EDD649002E9CB3 /* serverDrawingImageLibraryViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,6 +72,16 @@
 		9B2606AA15E3BDF000CD59EC /* Default-Landscape~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-Landscape~ipad.png"; path = "../../Default-Landscape~ipad.png"; sourceTree = "<group>"; };
 		9B3A4EE215E65C7A00F21429 /* clientConnectingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = clientConnectingViewController.h; sourceTree = "<group>"; };
 		9B3A4EE315E65C7A00F21429 /* clientConnectingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = clientConnectingViewController.m; sourceTree = "<group>"; };
+		9B454CB415EC5DA700932D97 /* client_tool_box.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = client_tool_box.png; sourceTree = "<group>"; };
+		9B454CB515EC5DA700932D97 /* pull.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pull.png; sourceTree = "<group>"; };
+		9B454CBC15EC5E3E00932D97 /* clientDrawingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = clientDrawingViewController.h; sourceTree = "<group>"; };
+		9B454CBD15EC5E3E00932D97 /* clientDrawingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = clientDrawingViewController.m; sourceTree = "<group>"; };
+		9B454CBF15EC5E5400932D97 /* clientDrawingGestureView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = clientDrawingGestureView.h; sourceTree = "<group>"; };
+		9B454CC015EC5E5400932D97 /* clientDrawingGestureView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = clientDrawingGestureView.m; sourceTree = "<group>"; };
+		9B454CC215EC5E6900932D97 /* clientDrawingToolboxView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = clientDrawingToolboxView.h; sourceTree = "<group>"; };
+		9B454CC315EC5E6900932D97 /* clientDrawingToolboxView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = clientDrawingToolboxView.m; sourceTree = "<group>"; };
+		9B454CD215ECEA3C00932D97 /* clientDrawingSettingTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = clientDrawingSettingTableViewController.h; sourceTree = "<group>"; };
+		9B454CD315ECEA3C00932D97 /* clientDrawingSettingTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = clientDrawingSettingTableViewController.m; sourceTree = "<group>"; };
 		9B928F0115EA11DB007A1E90 /* ServerDrawingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServerDrawingViewController.h; sourceTree = "<group>"; };
 		9B928F0215EA11DB007A1E90 /* ServerDrawingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServerDrawingViewController.m; sourceTree = "<group>"; };
 		9B928F3715EA6099007A1E90 /* DrawingPadView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DrawingPadView.h; sourceTree = "<group>"; };
@@ -104,6 +122,10 @@
 		9BEFE92915EBBCD400A91218 /* trash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = trash.png; sourceTree = "<group>"; };
 		9BEFE92A15EBBCD400A91218 /* undo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = undo.png; sourceTree = "<group>"; };
 		9BEFE93415EBC5D300A91218 /* no_undo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = no_undo.png; sourceTree = "<group>"; };
+		9BF516B915EDD50C002E9CB3 /* serverDrawingSettingTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = serverDrawingSettingTableViewController.h; sourceTree = "<group>"; };
+		9BF516BA15EDD50C002E9CB3 /* serverDrawingSettingTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = serverDrawingSettingTableViewController.m; sourceTree = "<group>"; };
+		9BF516C315EDD649002E9CB3 /* serverDrawingImageLibraryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = serverDrawingImageLibraryViewController.h; sourceTree = "<group>"; };
+		9BF516C415EDD649002E9CB3 /* serverDrawingImageLibraryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = serverDrawingImageLibraryViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,6 +158,8 @@
 				9BEFE92A15EBBCD400A91218 /* undo.png */,
 				9BEFE93415EBC5D300A91218 /* no_undo.png */,
 				9BEFE91D15EBAE7F00A91218 /* server_tool_box.png */,
+				9B454CB415EC5DA700932D97 /* client_tool_box.png */,
+				9B454CB515EC5DA700932D97 /* pull.png */,
 				9BB65D6C15E650BE00A9B347 /* button_back.png */,
 				9BB65D6015E64A3800A9B347 /* button_connecting.png */,
 				9BB65D6115E64A3800A9B347 /* button_connecting_pressed_on.png */,
@@ -157,6 +181,42 @@
 				9B26069815E3307D00CD59EC /* GCDAsyncSocket.m */,
 			);
 			path = GCDAsyncSocket;
+			sourceTree = "<group>";
+		};
+		9B454CBA15EC5DC600932D97 /* ClientClass */ = {
+			isa = PBXGroup;
+			children = (
+				9B3A4EE215E65C7A00F21429 /* clientConnectingViewController.h */,
+				9B3A4EE315E65C7A00F21429 /* clientConnectingViewController.m */,
+				9B454CBC15EC5E3E00932D97 /* clientDrawingViewController.h */,
+				9B454CBD15EC5E3E00932D97 /* clientDrawingViewController.m */,
+				9B454CBF15EC5E5400932D97 /* clientDrawingGestureView.h */,
+				9B454CC015EC5E5400932D97 /* clientDrawingGestureView.m */,
+				9B454CC215EC5E6900932D97 /* clientDrawingToolboxView.h */,
+				9B454CC315EC5E6900932D97 /* clientDrawingToolboxView.m */,
+				9B454CD215ECEA3C00932D97 /* clientDrawingSettingTableViewController.h */,
+				9B454CD315ECEA3C00932D97 /* clientDrawingSettingTableViewController.m */,
+			);
+			name = ClientClass;
+			sourceTree = "<group>";
+		};
+		9B454CBB15EC5DEA00932D97 /* ServerClass */ = {
+			isa = PBXGroup;
+			children = (
+				9BB65D5C15E646ED00A9B347 /* serverConnectingViewController.h */,
+				9BB65D5D15E646ED00A9B347 /* serverConnectingViewController.m */,
+				9B928F0115EA11DB007A1E90 /* ServerDrawingViewController.h */,
+				9B928F0215EA11DB007A1E90 /* ServerDrawingViewController.m */,
+				9BEFE91415EB9A3200A91218 /* serverDrawingGestureView.h */,
+				9BEFE91515EB9A3200A91218 /* serverDrawingGestureView.m */,
+				9BEFE91F15EBAF3500A91218 /* serverDrawingToolboxView.h */,
+				9BEFE92015EBAF3500A91218 /* serverDrawingToolboxView.m */,
+				9BF516C315EDD649002E9CB3 /* serverDrawingImageLibraryViewController.h */,
+				9BF516C415EDD649002E9CB3 /* serverDrawingImageLibraryViewController.m */,
+				9BF516B915EDD50C002E9CB3 /* serverDrawingSettingTableViewController.h */,
+				9BF516BA15EDD50C002E9CB3 /* serverDrawingSettingTableViewController.m */,
+			);
+			name = ServerClass;
 			sourceTree = "<group>";
 		};
 		9BB0173515E216D000133D10 = {
@@ -198,19 +258,11 @@
 				9B26069415E3300900CD59EC /* GlobalVariable.m */,
 				9BB0175315E216D000133D10 /* DPAppDelegate.h */,
 				9BB0175415E216D000133D10 /* DPAppDelegate.m */,
+				9B454CBA15EC5DC600932D97 /* ClientClass */,
+				9B454CBB15EC5DEA00932D97 /* ServerClass */,
 				9B928F3715EA6099007A1E90 /* DrawingPadView.h */,
 				9B928F3815EA6099007A1E90 /* DrawingPadView.m */,
-				9B3A4EE215E65C7A00F21429 /* clientConnectingViewController.h */,
-				9B3A4EE315E65C7A00F21429 /* clientConnectingViewController.m */,
-				9BB65D5C15E646ED00A9B347 /* serverConnectingViewController.h */,
-				9BB65D5D15E646ED00A9B347 /* serverConnectingViewController.m */,
-				9B928F0115EA11DB007A1E90 /* ServerDrawingViewController.h */,
-				9B928F0215EA11DB007A1E90 /* ServerDrawingViewController.m */,
-				9BEFE91415EB9A3200A91218 /* serverDrawingGestureView.h */,
-				9BEFE91515EB9A3200A91218 /* serverDrawingGestureView.m */,
 				9BB0175615E216D000133D10 /* MainStoryboard.storyboard */,
-				9BEFE91F15EBAF3500A91218 /* serverDrawingToolboxView.h */,
-				9BEFE92015EBAF3500A91218 /* serverDrawingToolboxView.m */,
 				9BB0175915E216D000133D10 /* DPViewController.h */,
 				9BB0175A15E216D000133D10 /* DPViewController.m */,
 				9BB0174B15E216D000133D10 /* Supporting Files */,
@@ -313,6 +365,8 @@
 				9BEFE93215EBBCD400A91218 /* trash.png in Resources */,
 				9BEFE93315EBBCD400A91218 /* undo.png in Resources */,
 				9BEFE93515EBC5D300A91218 /* no_undo.png in Resources */,
+				9B454CB615EC5DA700932D97 /* client_tool_box.png in Resources */,
+				9B454CB715EC5DA700932D97 /* pull.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -335,6 +389,12 @@
 				9B928F0315EA11DB007A1E90 /* ServerDrawingViewController.m in Sources */,
 				9BEFE91615EB9A3200A91218 /* serverDrawingGestureView.m in Sources */,
 				9BEFE92115EBAF3500A91218 /* serverDrawingToolboxView.m in Sources */,
+				9B454CBE15EC5E3E00932D97 /* clientDrawingViewController.m in Sources */,
+				9B454CC115EC5E5400932D97 /* clientDrawingGestureView.m in Sources */,
+				9B454CC415EC5E6900932D97 /* clientDrawingToolboxView.m in Sources */,
+				9B454CD415ECEA3C00932D97 /* clientDrawingSettingTableViewController.m in Sources */,
+				9BF516BB15EDD50C002E9CB3 /* serverDrawingSettingTableViewController.m in Sources */,
+				9BF516C515EDD649002E9CB3 /* serverDrawingImageLibraryViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

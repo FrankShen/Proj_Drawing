@@ -15,7 +15,6 @@
 @implementation DPViewController
 @synthesize serverButton;
 @synthesize clientButton;
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -67,5 +66,12 @@
         [self performSegueWithIdentifier:@"chooseClient" sender:self];
     }];
 }
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    //[segue.sourceViewController dismissModalViewControllerAnimated:NO];
+}
+
+
 
 @end

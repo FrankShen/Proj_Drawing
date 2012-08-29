@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "GlobalVariable.h"
 #import "MBProgressHUD/MBProgressHUD.h"
+#import "DPViewController.h"
+
 @interface clientConnectingViewController : UIViewController <UITextFieldDelegate, MBProgressHUDDelegate, UIAlertViewDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *deviceID;
 @property (strong, nonatomic) MBProgressHUD *HUD;

@@ -208,7 +208,7 @@ CGPoint midPoint(CGPoint p1, CGPoint p2)
 
 - (void)drawRect:(CGRect)rect
 {
-    if (self.currentPenType == PEN_TYPE_REFRESH_COVER){
+    if (self.currentPenType == PEN_TYPE_REFRESH){
         // Drawing code
         [curImage drawAtPoint:CGPointMake(0, 0)];
         [imageForRefresh drawAtPoint:CGPointMake(0, 0)];
@@ -216,7 +216,7 @@ CGPoint midPoint(CGPoint p1, CGPoint p2)
         NSLog(@"refreshed");
         return;
     }
-    if (self.currentPenType == PEN_TYPE_REFRESH){
+    if (self.currentPenType == PEN_TYPE_REFRESH_COVER){
         // Drawing code
         [imageForRefresh drawAtPoint:CGPointMake(0, 0)];
         self.currentPenType = previousPenType;
@@ -314,10 +314,10 @@ CGPoint midPoint(CGPoint p1, CGPoint p2)
     [self.delegate undoStatChanged];
     //NSLog(@"%d",history.count);
     
-    if (!needCover){
-        self.currentPenType = PEN_TYPE_REFRESH;
-    } else {
+    if (needCover){
         self.currentPenType = PEN_TYPE_REFRESH_COVER;
+    } else {
+        self.currentPenType = PEN_TYPE_REFRESH;
     }
     imageForRefresh = image;
     [self setNeedsDisplay];

@@ -16,6 +16,8 @@
 @synthesize localLAN = _localLAN;
 @synthesize userType = _userType;
 @synthesize networkStat = _networkStat;
+@synthesize isOverlay = _isOverlay;
+@synthesize isAutoShow = _isAutoShow;
 @synthesize clientConnectingDelegate = _clientConnectingDelegate;
 @synthesize serverConnectingDelegate = _serverConnectingDelegate;
 - (GCDAsyncSocket *)selfSocket
@@ -37,6 +39,12 @@
     return _dataPool;
 }
 
+- (NSMutableDictionary *)dataLengthPool{
+    if (!_dataLengthPool)
+        _dataLengthPool = [[NSMutableDictionary alloc] init];
+    return _dataLengthPool;
+}
+
 - (GlobalVariable *)init
 {
     self = [super init];
@@ -46,6 +54,10 @@
     self.deviceID = [temp objectAtIndex:3];
     NSLog(@"%@", self.localLAN);
     NSLog(@"%@", self.deviceID);
+
+    self.isOverlay = YES;
+    self.isAutoShow = NO;
+    
     return self;
 }
 
@@ -142,6 +154,7 @@
 - (void)socket:(GCDAsyncSocket *)sock didAcceptNewSocket:(GCDAsyncSocket *)newSocket
 {
     [self.socketPool setObject:newSocket forKey:newSocket.connectedHost];
+    [newSocket readDataWithTimeout:-1 tag:INCOMING_SIGNAL];
 }
 
 - (void)socket:(GCDAsyncSocket *)sock didConnectToHost:(NSString *)host port:(uint16_t)port
@@ -151,4 +164,53 @@
         [self.clientConnectingDelegate connectToHostSuccessed];
     });
 }
+
+- (void)socket:(GCDAsyncSocket *)sock didReadData:(NSData *)data withTag:(long)tag
+{
+    if (tag == INCOMING_SIGNAL){
+        NSString *recieveStr = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+        if ([recieveStr isEqualToString:@"PREPARE_FOR_IMAGE"]){
+            [sock readDataWithTimeout:-1 tag:PREPARE_FOR_IMAGE];
+        } else if ([recieveStr isEqualToString:@"PREPARE_FOR_PULL"]){
+            self.imageToSend = [self.serverDrawingDelegate grabImage];
+            
+            [sock writeData:[[NSString stringWithFormat:@"%d", UIImagePNGRepresentation(self.imageToSend).length] dataUsingEncoding:NSUTF8StringEncoding] withTimeout:-1 tag:PREPARE_FOR_PULL];
+            [sock writeData:UIImagePNGRepresentation(self.imageToSend) withTimeout:-0 tag:IMAGE_PULLING];
+            [sock readDataWithTimeout:-1 tag:INCOMING_SIGNAL];
+        }
+    } else if (tag == PREPARE_FOR_IMAGE){
+        NSString *recieveStr = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+        [self.dataPool setObject:[[NSMutableData alloc] init] forKey:sock.connectedHost];
+        [self.dataLengthPool setObject:[NSNumber numberWithInt:[recieveStr intValue]] forKey:sock.connectedHost];
+        [sock readDataWithTimeout:-1 tag:IMAGE_SENDING];
+    } else if (tag == IMAGE_SENDING){
+        [((NSMutableData *)[self.dataPool objectForKey:sock.connectedHost]) appendData:data];
+        if (((NSMutableData *)[self.dataPool objectForKey:sock.connectedHost]).length < [[self.dataLengthPool objectForKey:sock.connectedHost] intValue]){
+            NSLog(@"%d, %d", ((NSMutableData *)[self.dataPool objectForKey:sock.connectedHost]).length, [[self.dataLengthPool objectForKey:sock.connectedHost] intValue]);
+            [sock readDataWithTimeout:-1 tag:IMAGE_SENDING];
+        }else {
+            NSLog(@"%d, %d", ((NSMutableData *)[self.dataPool objectForKey:sock.connectedHost]).length, [[self.dataLengthPool objectForKey:sock.connectedHost] intValue]);
+            [self.serverDrawingDelegate recievedImage:[UIImage imageWithData:[self.dataPool objectForKey:sock.connectedHost]]];
+            [sock writeData:nil withTimeout:-1 tag:SEND_SUCCESS];
+            [sock readDataWithTimeout:-1 tag:INCOMING_SIGNAL];
+        }
+    } else if (tag == SEND_SUCCESS){
+        NSLog(@"send Ok");
+    } else if (tag == PREPARE_FOR_PULL){
+        self.clientData = [[NSMutableData alloc] init];
+        NSString *recieveStr = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+        self.clientLength = [recieveStr intValue];
+        [self.selfSocket readDataWithTimeout:-1 tag:IMAGE_PULLING];
+    } else if (tag == IMAGE_PULLING){
+        [self.clientData appendData:data];
+        if (self.clientData.length < self.clientLength){
+            NSLog(@"%d,%d", self.clientData.length, self.clientLength);
+            [self.selfSocket readDataWithTimeout:-1 tag:IMAGE_PULLING];
+        } else {
+            NSLog(@"%d,%d", self.clientData.length, self.clientLength);
+            [self.clientDrawingDelegate recievedImage:[UIImage imageWithData:self.clientData]];
+        }
+    }
+}
+
 @end

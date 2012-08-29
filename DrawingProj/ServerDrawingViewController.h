@@ -7,11 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GlobalVariable.h"
 #import "serverDrawingGestureView.h"
 #import "serverDrawingToolboxView.h"
-@interface ServerDrawingViewController : UIViewController
+#import "serverDrawingSettingTableViewController.h"
+#import "serverDrawingImageLibraryViewController.h"
+@interface ServerDrawingViewController : UIViewController<GlobalVariableDelegate>
 @property (weak, nonatomic) IBOutlet serverDrawingGestureView *gestureView;
 @property (weak, nonatomic) IBOutlet serverDrawingToolboxView *toolboxView;
-
-
+@property (weak, nonatomic) UIPopoverController *popOver;
 @end

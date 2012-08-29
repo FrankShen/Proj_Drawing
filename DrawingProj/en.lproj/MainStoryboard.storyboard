@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2549" systemVersion="12B19" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" initialViewController="Qxn-Kn-Pdw">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2549" systemVersion="12B19" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" initialViewController="2">
     <dependencies>
         <deployment defaultVersion="1296" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1498"/>
@@ -62,7 +62,7 @@
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="-5305" y="-850"/>
+            <point key="canvasLocation" x="-3753" y="-2146"/>
         </scene>
         <!--Client Connecting View Controller-->
         <scene sceneID="13c-q2-DZv">
@@ -142,10 +142,11 @@
                     <connections>
                         <outlet property="deviceID" destination="iVi-rc-naB" id="OHD-HN-VLz"/>
                         <segue destination="2" kind="modal" identifier="clientBackToMain" modalTransitionStyle="crossDissolve" id="eHv-hH-ZVp"/>
+                        <segue destination="oXu-wt-eCY" kind="modal" identifier="clientConnectSuccess" modalTransitionStyle="crossDissolve" id="1Sj-In-0eE"/>
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="-5305" y="98"/>
+            <point key="canvasLocation" x="-3753" y="-1198"/>
         </scene>
         <!--Server Connecting View Controller-->
         <scene sceneID="tdf-MJ-M8z">
@@ -227,10 +228,262 @@
                     <connections>
                         <outlet property="deviceID" destination="F8y-we-jey" id="pum-qo-98E"/>
                         <segue destination="2" kind="modal" identifier="serverBackToMain" modalTransitionStyle="crossDissolve" id="W78-Er-qXc"/>
+                        <segue destination="Qxn-Kn-Pdw" kind="modal" identifier="serverConnectSucess" modalTransitionStyle="crossDissolve" id="46x-qh-2xY"/>
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="-5305" y="-1815"/>
+            <point key="canvasLocation" x="-3753" y="-3111"/>
+        </scene>
+        <!--Client Drawing View Controller-->
+        <scene sceneID="JY4-RI-8Jx">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Uyh-gM-G8l" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="oXu-wt-eCY" customClass="clientDrawingViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="KA5-Fj-NbV">
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="background.png" id="eO7-MK-qoa">
+                                <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" id="mlQ-wx-DWY" customClass="clientDrawingGestureView">
+                                <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" id="ByI-0X-aLt" customClass="DrawingPadView">
+                                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="drawingPadView" destination="ByI-0X-aLt" id="Vr3-w5-Zle"/>
+                                </connections>
+                            </view>
+                            <view contentMode="scaleToFill" id="bgb-Jt-2tu" customClass="clientDrawingToolboxView">
+                                <rect key="frame" x="0.0" y="650" width="424" height="69"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="client_tool_box.png" id="Ez0-sO-pjU">
+                                        <rect key="frame" x="0.0" y="0.0" width="424" height="69"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="A8y-h3-RSo">
+                                        <rect key="frame" x="360" y="5" width="60" height="60"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" image="marker_active.png">
+                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="toolboxButtonPressed:" destination="oXu-wt-eCY" eventType="touchUpInside" id="85A-G7-QFd"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="rwo-lZ-Wn2">
+                                        <rect key="frame" x="300" y="5" width="60" height="60"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" image="pull.png">
+                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="pullButtonPressed:" destination="oXu-wt-eCY" eventType="touchUpInside" id="mjg-UY-3oy"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="bYJ-BS-HZv">
+                                        <rect key="frame" x="240" y="5" width="60" height="60"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" image="no_undo.png">
+                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="selected" image="undo.png"/>
+                                        <state key="highlighted">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="undoButtonPressed:" destination="oXu-wt-eCY" eventType="touchUpInside" id="xKB-RK-fj2"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Qbw-dz-IsI">
+                                        <rect key="frame" x="180" y="5" width="60" height="60"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" image="trash.png">
+                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="trashButtonPressed:" destination="oXu-wt-eCY" eventType="touchUpInside" id="dcI-2G-8XN"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="sol-UP-gJO">
+                                        <rect key="frame" x="120" y="5" width="60" height="60"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" image="eraser_inactive.png">
+                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="selected" image="eraser_active.png"/>
+                                        <state key="highlighted">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="eraserButtonPressed:" destination="oXu-wt-eCY" eventType="touchUpInside" id="fen-u9-Xq6"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="ngC-nM-ANy">
+                                        <rect key="frame" x="60" y="5" width="60" height="60"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" image="brush_inactive.png">
+                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="selected" image="brush_active.png"/>
+                                        <state key="highlighted">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="brushButtonPressed:" destination="oXu-wt-eCY" eventType="touchUpInside" id="Ye1-IM-Q41"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="T99-Ja-VCG">
+                                        <rect key="frame" x="0.0" y="5" width="60" height="60"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" image="marker_inactive.png">
+                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="selected" image="marker_active.png"/>
+                                        <state key="highlighted">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="markButtonPressed:" destination="oXu-wt-eCY" eventType="touchUpInside" id="GwP-nj-zNT"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="brushButton" destination="ngC-nM-ANy" id="bal-wr-ECK"/>
+                                    <outlet property="eraserButton" destination="sol-UP-gJO" id="QxG-H7-USx"/>
+                                    <outlet property="markerButton" destination="T99-Ja-VCG" id="kPU-6R-eP2"/>
+                                    <outlet property="toolboxButton" destination="A8y-h3-RSo" id="Dyk-dG-End"/>
+                                    <outlet property="undoButton" destination="bYJ-BS-HZv" id="tpy-N4-5eZ"/>
+                                </connections>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="p9T-2K-XON">
+                                <rect key="frame" x="30" y="30" width="44" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="settingButtonPressed:" destination="oXu-wt-eCY" eventType="touchUpInside" id="8rS-rv-XOk"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    </view>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    <connections>
+                        <outlet property="gestureView" destination="mlQ-wx-DWY" id="qXH-QR-sx4"/>
+                        <outlet property="toolboxView" destination="bgb-Jt-2tu" id="0f5-XP-gzf"/>
+                        <segue destination="nWc-DO-QGE" kind="popover" identifier="clientSetting" popoverAnchorView="p9T-2K-XON" id="lnC-xj-zUe">
+                            <popoverArrowDirection key="popoverArrowDirection" up="YES"/>
+                        </segue>
+                    </connections>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="-2326" y="-1090"/>
+        </scene>
+        <!--Client Drawing Setting Table View Controller - 设置-->
+        <scene sceneID="ETf-pf-rh8">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FUO-Di-Xeh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tableViewController modalPresentationStyle="currentContext" id="JU5-8f-0jq" customClass="clientDrawingSettingTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="p52-kG-YKo">
+                        <rect key="frame" x="0.0" y="44" width="1024" height="768"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                        <sections>
+                            <tableViewSection id="lhP-QW-0oF">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="overlay" id="9uB-m7-RoI">
+                                        <rect key="frame" x="0.0" y="30" width="1024" height="46"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="45" y="1" width="934" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="始终完全覆盖原图" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="5kf-hY-mWb">
+                                                    <rect key="frame" x="20" y="11" width="392" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </label>
+                                                <switch opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" id="bVZ-tf-Zv8">
+                                                    <rect key="frame" x="835" y="8" width="79" height="27"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                                    <color key="onTintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <connections>
+                                                        <action selector="overlaySwitch:" destination="JU5-8f-0jq" eventType="valueChanged" id="UyV-f1-drL"/>
+                                                    </connections>
+                                                </switch>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="JU5-8f-0jq" id="Uek-P3-qtn"/>
+                            <outlet property="delegate" destination="JU5-8f-0jq" id="IcY-4a-8FY"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="设置" id="C7d-VG-8Dp">
+                        <barButtonItem key="rightBarButtonItem" title="断开链接" id="SZT-BW-Z74">
+                            <connections>
+                                <action selector="disconnectPressed:" destination="JU5-8f-0jq" id="LdR-cm-Gt1"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <value key="contentSizeForViewInPopover" type="size" width="320" height="480"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="overlaySwitch" destination="bVZ-tf-Zv8" id="yEC-uC-OpV"/>
+                        <segue destination="jvU-h0-ulo" kind="modal" identifier="clientDisconnect" id="mHF-cI-cPV"/>
+                    </connections>
+                </tableViewController>
+            </objects>
+            <point key="canvasLocation" x="829" y="-2558"/>
         </scene>
         <!--Server Drawing View Controller-->
         <scene sceneID="l75-Yz-oSO">
@@ -372,6 +625,21 @@
                                     <outlet property="undoButton" destination="cNW-8c-fS2" id="vkd-ck-G7d"/>
                                 </connections>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="aRq-sl-ltj">
+                                <rect key="frame" x="30" y="30" width="60" height="60"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="settingButtonPressed:" destination="Qxn-Kn-Pdw" eventType="touchUpInside" id="Ih7-n5-O02"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
@@ -381,10 +649,182 @@
                     <connections>
                         <outlet property="gestureView" destination="OPp-o8-11d" id="911-vW-26c"/>
                         <outlet property="toolboxView" destination="Npp-1j-biK" id="ioZ-Tc-OUe"/>
+                        <segue destination="Cke-AO-6eN" kind="popover" identifier="serverSetting" popoverAnchorView="aRq-sl-ltj" id="YYt-w5-Agd">
+                            <popoverArrowDirection key="popoverArrowDirection" up="YES"/>
+                        </segue>
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="-3898" y="-850"/>
+            <point key="canvasLocation" x="-2246" y="-3177"/>
+        </scene>
+        <!--Server Drawing Image Library View Controller - 收到的图片-->
+        <scene sceneID="DWX-0r-n2Y">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0J9-TO-xpr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="ZoE-Qw-QqJ" customClass="serverDrawingImageLibraryViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Jct-Xy-teG">
+                        <rect key="frame" x="0.0" y="44" width="1024" height="724"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="240" sectionHeaderHeight="22" sectionFooterHeight="22" id="Btd-gO-jIi">
+                                <rect key="frame" x="0.0" y="0.0" width="1024" height="724"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="gray" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="imageCell" rowHeight="240" id="i2x-y6-ezS">
+                                        <rect key="frame" x="0.0" y="22" width="1024" height="240"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="1024" height="239"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="收到的图片" id="qCo-Zq-mxY">
+                        <barButtonItem key="rightBarButtonItem" title="设置" id="ANz-Ro-le3">
+                            <connections>
+                                <segue destination="5CK-fK-bl3" kind="push" identifier="serverSettingNext" id="nvb-rY-N8c"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <value key="contentSizeForViewInPopover" type="size" width="320" height="480"/>
+                    <nil key="simulatedStatusBarMetrics"/>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="791" y="-3821"/>
+        </scene>
+        <!--Server Drawing Setting Table View Controller - 设置-->
+        <scene sceneID="Xz3-zR-6U9">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="txZ-ck-Yoy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tableViewController modalPresentationStyle="currentContext" id="5CK-fK-bl3" customClass="serverDrawingSettingTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="3Dy-2G-hq7">
+                        <rect key="frame" x="0.0" y="44" width="1024" height="724"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                        <sections>
+                            <tableViewSection id="Yth-QC-LZS">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="IdA-qX-Cmb">
+                                        <rect key="frame" x="0.0" y="30" width="1024" height="45"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="45" y="1" width="934" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="始终完全覆盖原图" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="zXh-cc-QHl">
+                                                    <rect key="frame" x="20" y="11" width="180" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </label>
+                                                <switch opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" id="VMk-kj-qnZ">
+                                                    <rect key="frame" x="835" y="8" width="79" height="27"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                                    <color key="onTintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <connections>
+                                                        <action selector="overlaySwitch:" destination="5CK-fK-bl3" eventType="valueChanged" id="VfN-OE-1pd"/>
+                                                    </connections>
+                                                </switch>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="JkT-dB-Bvb">
+                                        <rect key="frame" x="0.0" y="75" width="1024" height="45"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="45" y="0.0" width="934" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="自动显示收到的图片" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="GTf-zO-Vgh">
+                                                    <rect key="frame" x="20" y="11" width="180" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </label>
+                                                <switch opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="qU6-Ep-K2P">
+                                                    <rect key="frame" x="835" y="8" width="79" height="27"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                                    <color key="onTintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <connections>
+                                                        <action selector="showAutoSwitch:" destination="5CK-fK-bl3" eventType="valueChanged" id="v5R-BC-4xC"/>
+                                                    </connections>
+                                                </switch>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="5CK-fK-bl3" id="AW0-pK-0f9"/>
+                            <outlet property="delegate" destination="5CK-fK-bl3" id="Gpb-6Z-d2B"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="设置" id="cfb-fr-fab">
+                        <barButtonItem key="rightBarButtonItem" title="断开连接" id="ahx-1U-sgX">
+                            <connections>
+                                <action selector="disconnectPressed:" destination="5CK-fK-bl3" id="gPT-Ri-6h4"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <value key="contentSizeForViewInPopover" type="size" width="320" height="480"/>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <connections>
+                        <outlet property="autoShowSwitch" destination="qU6-Ep-K2P" id="tZq-5b-j48"/>
+                        <outlet property="overlaySwitch" destination="VMk-kj-qnZ" id="wyw-f0-aUb"/>
+                        <segue destination="21J-DY-VuT" kind="modal" identifier="serverDisconnect" id="CmS-qB-2Dm"/>
+                    </connections>
+                </tableViewController>
+            </objects>
+            <point key="canvasLocation" x="2150" y="-4287"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="NO7-YP-lMu">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gtl-Bo-Rf6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <navigationController id="nWc-DO-QGE" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="q9Y-bA-dxR">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="JU5-8f-0jq" kind="relationship" relationship="rootViewController" id="aSW-T5-t6A"/>
+                    </connections>
+                </navigationController>
+            </objects>
+            <point key="canvasLocation" x="-867" y="-1858"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="0B2-A1-ldp">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fWA-IB-E3E" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <navigationController id="Cke-AO-6eN" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="QrS-nY-yXe">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="ZoE-Qw-QqJ" kind="relationship" relationship="rootViewController" id="knA-Sk-J70"/>
+                    </connections>
+                </navigationController>
+            </objects>
+            <point key="canvasLocation" x="-783" y="-3505"/>
         </scene>
     </scenes>
     <resources>
@@ -399,80 +839,25 @@
         <image name="button_connecting_pressed_on.png" width="268" height="106"/>
         <image name="button_server.png" width="304" height="310"/>
         <image name="button_server_pressed_on.png" width="304" height="310"/>
+        <image name="client_tool_box.png" width="424" height="69"/>
         <image name="eraser_active.png" width="60" height="60"/>
         <image name="eraser_inactive.png" width="60" height="60"/>
         <image name="marker_active.png" width="60" height="60"/>
         <image name="marker_inactive.png" width="60" height="60"/>
         <image name="no_undo.png" width="60" height="60"/>
+        <image name="pull.png" width="60" height="60"/>
         <image name="server_tool_box.png" width="364" height="69"/>
         <image name="trash.png" width="60" height="60"/>
         <image name="undo.png" width="60" height="60"/>
     </resources>
-    <classes>
-        <class className="DPViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/DPViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="clientButtonPressed:"/>
-                <relationship kind="action" name="serverButtonPressed:"/>
-                <relationship kind="outlet" name="clientButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="serverButton" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-        <class className="DrawingPadView" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/DrawingPadView.h"/>
-        </class>
-        <class className="ServerDrawingViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ServerDrawingViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="brushButtonPressed:"/>
-                <relationship kind="action" name="eraserButtonPressed:"/>
-                <relationship kind="action" name="markButtonPressed:"/>
-                <relationship kind="action" name="toolboxButtonPressed:"/>
-                <relationship kind="action" name="trashButtonPressed:"/>
-                <relationship kind="action" name="undoButtonPressed:"/>
-                <relationship kind="outlet" name="gestureView" candidateClass="serverDrawingGestureView"/>
-                <relationship kind="outlet" name="toolboxView" candidateClass="serverDrawingToolboxView"/>
-            </relationships>
-        </class>
-        <class className="clientConnectingViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/clientConnectingViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="backButtonPressed:"/>
-                <relationship kind="action" name="connectButtonPressed:"/>
-                <relationship kind="outlet" name="deviceID" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="serverConnectingViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/serverConnectingViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="backButtonPressed:"/>
-                <relationship kind="action" name="createButtonPressed:"/>
-                <relationship kind="outlet" name="deviceID" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="serverDrawingGestureView" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/serverDrawingGestureView.h"/>
-            <relationships>
-                <relationship kind="outlet" name="drawingPadView" candidateClass="DrawingPadView"/>
-            </relationships>
-        </class>
-        <class className="serverDrawingToolboxView" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/serverDrawingToolboxView.h"/>
-            <relationships>
-                <relationship kind="outlet" name="brushButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="eraserButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="markerButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="toolboxButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="undoButton" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
+        <segue reference="CmS-qB-2Dm"/>
+        <segue reference="mHF-cI-cPV"/>
         <segue reference="eHv-hH-ZVp"/>
     </inferredMetricsTieBreakers>
 </document>

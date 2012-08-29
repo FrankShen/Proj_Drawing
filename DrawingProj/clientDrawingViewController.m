@@ -1,22 +1,22 @@
 //
-//  ServerDrawingViewController.m
+//  clientDrawingViewController.m
 //  DrawingProj
 //
-//  Created by BuG.BS on 12-8-26.
+//  Created by BuG.BS on 12-8-28.
 //  Copyright (c) 2012年 BuG.BS. All rights reserved.
 //
 
-#import "ServerDrawingViewController.h"
-#import "DrawingPadView.h"
-#import "serverDrawingToolboxView.h"
+#import "clientDrawingViewController.h"
 #import "GlobalVariable.h"
-@interface ServerDrawingViewController ()<DrawingPadViewDelegate,ServerSettingDelegate>
+#import "clientDrawingSettingTableViewController.h"
+@interface clientDrawingViewController ()<DrawingPadViewDelegate,ClientDrawingToolBoxViewDelegate,ClientSettingDelegate>
 
 @end
 
-@implementation ServerDrawingViewController
+@implementation clientDrawingViewController
 @synthesize gestureView;
 @synthesize toolboxView;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -31,12 +31,10 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
-    /*
     UIPanGestureRecognizer *ges = [[UIPanGestureRecognizer alloc] initWithTarget:self.gestureView action:@selector(pan:)];
     ges.maximumNumberOfTouches = 2;
     ges.minimumNumberOfTouches = 2;
     [self.gestureView addGestureRecognizer:ges];
-     */
     
     UISwipeGestureRecognizer *gesOpen = [[UISwipeGestureRecognizer alloc] initWithTarget:self.toolboxView action:@selector(swipeOpen:)];
     gesOpen.numberOfTouchesRequired = 1;
@@ -49,23 +47,27 @@
     [self.toolboxView addGestureRecognizer:gesOpen];
     [self.toolboxView addGestureRecognizer:gesClose];
     
-    self.toolboxView.frame = CGRectMake(-364, 650, 364, 69);
+    self.toolboxView.frame = CGRectMake(-424, 650, 424, 69);
     dispatch_async(dispatch_get_main_queue(), ^{
         [UIView animateWithDuration:0.5 animations:^{
-            self.toolboxView.frame = CGRectMake(-300, 650, 364, 69);
+            self.toolboxView.frame = CGRectMake(-360, 650, 424, 69);
         }];
     });
     self.toolboxView.markerButton.selected = YES;
+    
+        
     self.gestureView.drawingPadView.delegate = self;
-    [GlobalVariable getGlobalVariable].serverDrawingDelegate = self;
+    self.gestureView.delegate = self;
+    [GlobalVariable getGlobalVariable].tempDelegate = self;
+    [GlobalVariable getGlobalVariable].clientDrawingDelegate = self;
 
+    
 }
 
 - (void)viewDidUnload
 {
     [self setGestureView:nil];
     [self setToolboxView:nil];
-    
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
@@ -91,7 +93,7 @@
     if (self.toolboxView.isShow) {
         dispatch_async(dispatch_get_main_queue(), ^{
             [UIView animateWithDuration:0.5 animations:^{
-                self.toolboxView.frame = CGRectMake(-300, 650, 364, 69);
+                self.toolboxView.frame = CGRectMake(-360, 650, 424, 69);
             }];
         });
         self.toolboxView.isShow = NO;
@@ -99,11 +101,11 @@
     } else {
         dispatch_async(dispatch_get_main_queue(), ^{
             [UIView animateWithDuration:0.5 animations:^{
-                self.toolboxView.frame = CGRectMake(0, 650, 364, 69);
+                self.toolboxView.frame = CGRectMake(0, 650, 424, 69);
             }];
         });
         self.toolboxView.isShow = YES;
-                [self.toolboxView.toolboxButton setImage:[UIImage imageNamed:@"close.png"] forState:UIControlStateNormal];
+        [self.toolboxView.toolboxButton setImage:[UIImage imageNamed:@"close.png"] forState:UIControlStateNormal];
     }
 }
 
@@ -115,6 +117,7 @@
     self.toolboxView.eraserButton.selected = NO;
 }
 
+
 - (IBAction)brushButtonPressed:(id)sender
 {
     self.gestureView.drawingPadView.currentPenType = PEN_TYPE_BRUSH;
@@ -122,6 +125,7 @@
     self.toolboxView.brushButton.selected = YES;
     self.toolboxView.eraserButton.selected = NO;
 }
+
 
 - (IBAction)eraserButtonPressed:(id)sender
 {
@@ -131,14 +135,23 @@
     self.toolboxView.eraserButton.selected = YES;
 }
 
+
 - (IBAction)trashButtonPressed:(id)sender
 {
     [self.gestureView.drawingPadView cleanUp];
 }
 
+
 - (IBAction)undoButtonPressed:(id)sender
 {
     [self.gestureView.drawingPadView undo];
+}
+
+- (IBAction)pullButtonPressed:(id)sender
+{
+    [[GlobalVariable getGlobalVariable].selfSocket writeData:[@"PREPARE_FOR_PULL" dataUsingEncoding:NSUTF8StringEncoding] withTimeout:-1 tag:INCOMING_SIGNAL];
+    [[GlobalVariable getGlobalVariable].selfSocket readDataWithTimeout:-1 tag:PREPARE_FOR_PULL];
+
 }
 
 - (void)undoStatChanged
@@ -155,7 +168,33 @@
     if (self.toolboxView.isShow) {
         dispatch_async(dispatch_get_main_queue(), ^{
             [UIView animateWithDuration:0.5 animations:^{
-                self.toolboxView.frame = CGRectMake(-300, 650, 364, 69);
+                self.toolboxView.frame = CGRectMake(-360, 650, 424, 69);
+            }];
+        });
+        self.toolboxView.isShow = NO;
+        [self changeToolboxButton];
+    }
+}
+
+- (void)swipeLeftFromRightDetect
+{
+    if (!self.toolboxView.isShow){
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [UIView animateWithDuration:0.5 animations:^{
+                self.toolboxView.frame = CGRectMake(0, 650, 424, 69);
+            }];
+        });
+        self.toolboxView.isShow = YES;
+        [self.toolboxView.toolboxButton setImage:[UIImage imageNamed:@"close.png"] forState:UIControlStateNormal];
+    }
+}
+
+- (void)swipeRightFromLeftDetect
+{
+    if (self.toolboxView.isShow) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [UIView animateWithDuration:0.5 animations:^{
+                self.toolboxView.frame = CGRectMake(-360, 650, 424, 69);
             }];
         });
         self.toolboxView.isShow = NO;
@@ -165,14 +204,13 @@
 
 - (IBAction)settingButtonPressed:(id)sender
 {
-    [self performSegueWithIdentifier:@"serverSetting" sender:self];
+    [self performSegueWithIdentifier:@"clientSetting" sender:self];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if ([segue.identifier isEqualToString:@"serverSetting"]){
+    if ([segue.identifier isEqualToString:@"clientSetting"]){
         //
-        [GlobalVariable getGlobalVariable].tempDelegate = self;
         self.popOver = ((UIStoryboardPopoverSegue *)segue).popoverController;
     }
 }
@@ -183,14 +221,20 @@
     [self.popOver dismissPopoverAnimated:NO];
 }
 
+- (void)sendImage
+{
+    [GlobalVariable getGlobalVariable].imageToSend = [self.gestureView.drawingPadView getCurrentPicture];
+    
+    [[GlobalVariable getGlobalVariable].selfSocket writeData:[@"PREPARE_FOR_IMAGE" dataUsingEncoding:NSUTF8StringEncoding] withTimeout:-1 tag:INCOMING_SIGNAL];
+    [[GlobalVariable getGlobalVariable].selfSocket writeData:[[NSString stringWithFormat:@"%d", UIImagePNGRepresentation([GlobalVariable getGlobalVariable].imageToSend).length] dataUsingEncoding:NSUTF8StringEncoding] withTimeout:-1 tag:PREPARE_FOR_IMAGE];
+    
+    [[GlobalVariable getGlobalVariable].selfSocket writeData:UIImagePNGRepresentation([GlobalVariable getGlobalVariable].imageToSend) withTimeout:-1 tag:IMAGE_SENDING];
+    
+    //[[GlobalVariable getGlobalVariable].selfSocket readDataWithTimeout:-1 tag:SEND_SUCCESS];
+}
+
 - (void)recievedImage:(UIImage *)image
 {
     [self.gestureView.drawingPadView refreshWithPicture:image Cover:[GlobalVariable getGlobalVariable].isOverlay];
 }
-
-- (UIImage *)grabImage
-{
-    return [self.gestureView.drawingPadView getCurrentPicture];
-}
-
 @end

@@ -1,14 +1,14 @@
 //
-//  serverDrawingGestureView.m
+//  clientDrawingGestureView.m
 //  DrawingProj
 //
-//  Created by BuG.BS on 12-8-27.
+//  Created by BuG.BS on 12-8-28.
 //  Copyright (c) 2012年 BuG.BS. All rights reserved.
 //
 
-#import "serverDrawingGestureView.h"
+#import "clientDrawingGestureView.h"
 
-@implementation serverDrawingGestureView
+@implementation clientDrawingGestureView
 @synthesize drawingPadView = _drawingPadView;
 - (id)initWithFrame:(CGRect)frame
 {
@@ -18,6 +18,15 @@
     }
     return self;
 }
+
+/*
+// Only override drawRect: if you perform custom drawing.
+// An empty implementation adversely affects performance during animation.
+- (void)drawRect:(CGRect)rect
+{
+    // Drawing code
+}
+*/
 
 - (void)pan:(UIPanGestureRecognizer *)gesture
 {
@@ -42,13 +51,8 @@
         
         if (self.frame.origin.y < -200) {
             NSLog(@"YES");
-            /*
-             [UIView animateWithDuration:0.5 animations:^{
-             self.frame = CGRectMake(self.frame.origin.x, -480, self.frame.size.width, self.frame.size.height);
-             self.imageView.alpha = 0.0;
-             }];
-             */
-            [UIView animateWithDuration:0.5 animations:^{
+            [self.delegate sendImage];
+            [UIView animateWithDuration:0.5 delay:0.0 options:UIViewAnimationCurveLinear animations:^{
                 self.frame = CGRectMake(self.frame.origin.x, -768, self.frame.size.width, self.frame.size.height);
                 self.drawingPadView.alpha = 0.0;
             }completion:^(BOOL isFinished){
@@ -65,17 +69,7 @@
                 self.drawingPadView.alpha = 1.0;
             }];
         }
-        
     }
 }
-
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
-{
-    // Drawing code
-}
-*/
 
 @end

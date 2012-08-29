@@ -1,21 +1,22 @@
 //
-//  serverDrawingToolboxView.m
+//  clientDrawingToolboxView.m
 //  DrawingProj
 //
-//  Created by BuG.BS on 12-8-27.
+//  Created by BuG.BS on 12-8-28.
 //  Copyright (c) 2012年 BuG.BS. All rights reserved.
 //
 
-#import "serverDrawingToolboxView.h"
+#import "clientDrawingToolboxView.h"
 
-@implementation serverDrawingToolboxView
+@implementation clientDrawingToolboxView
 @synthesize isShow = _isShow;
 @synthesize markerButton = _markerButton;
 @synthesize brushButton = _brushButton;
 @synthesize eraserButton = _eraserButton;
 @synthesize toolboxButton = _toolboxButton;
 @synthesize undoButton = _undoButton;
-//@synthesize delegate = _delegate;
+@synthesize delegate = _delegate;
+
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
@@ -39,8 +40,8 @@
 {
     if (gesture.state == UIGestureRecognizerStateChanged ||
         gesture.state == UIGestureRecognizerStateEnded) {
-            //[self.delegate swipeLeftFromRightDetect];
-            NSLog(@"open");
+        [self.delegate swipeLeftFromRightDetect];
+        NSLog(@"open");
     }
 }
 
@@ -48,8 +49,9 @@
 {
     if (gesture.state == UIGestureRecognizerStateChanged ||
         gesture.state == UIGestureRecognizerStateEnded) {
-        //[self.delegate swipeRightFromLeftDetect];
+        [self.delegate swipeRightFromLeftDetect];
         NSLog(@"close");
     }
 }
+
 @end
