@@ -9,12 +9,15 @@
 #import <UIKit/UIKit.h>
 #import "GlobalVariable.h"
 #import "serverDrawingGestureView.h"
-#import "serverDrawingToolboxView.h"
-#import "serverDrawingSettingTableViewController.h"
-#import "serverDrawingImageLibraryViewController.h"
+#import "ImageLibraryTableView.h"
+#import "ImageLibraryCell.h"
 @interface ServerDrawingViewController : UIViewController<GlobalVariableDelegate>
 @property (weak, nonatomic) IBOutlet serverDrawingGestureView *gestureView;
-@property (weak, nonatomic) IBOutlet serverDrawingToolboxView *toolboxView;
-@property (weak, nonatomic) UIPopoverController *popOver;
-@property (weak, nonatomic) IBOutlet UIButton *settingButton;
+
+@property (nonatomic,weak) IBOutlet UIButton *markerButton;
+@property (nonatomic,weak) IBOutlet UIButton *brushButton;
+@property (nonatomic,weak) IBOutlet UIButton *eraserButton;
+@property (weak, nonatomic) IBOutlet UIButton *undoButton;
+@property (weak, nonatomic) IBOutlet ImageLibraryTableView *imageTableView;
+
 @end

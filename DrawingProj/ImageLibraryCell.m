@@ -1,15 +1,16 @@
 //
-//  ImageLibraryTableViewCell.m
+//  ImageLibraryCell.m
 //  DrawingProj
 //
-//  Created by BuG.BS on 12-8-29.
+//  Created by BuG.BS on 12-8-31.
 //  Copyright (c) 2012年 BuG.BS. All rights reserved.
 //
 
-#import "ImageLibraryTableViewCell.h"
+#import "ImageLibraryCell.h"
 
-@implementation ImageLibraryTableViewCell
-@synthesize imageView;
+@implementation ImageLibraryCell
+@synthesize image;
+@synthesize unreadSignal;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {

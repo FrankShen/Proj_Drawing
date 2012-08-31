@@ -9,10 +9,9 @@
 #import <Foundation/Foundation.h>
 #import "DPAppDelegate.h"
 #import "GCDAsyncSocket/GCDAsyncSocket.h"
-#import "serverDrawingSettingTableViewController.h"
 #include <ifaddrs.h>
 #include <arpa/inet.h>
-
+#include "imageInfo.h"
 #define USER_TYPE_SERVER 0
 #define USER_TYPE_CLIENT 1
 #define NETWORK_STAT_NORMAL 0
@@ -41,6 +40,7 @@
 
 @end
 
+
 @interface GlobalVariable : NSObject <GCDAsyncSocketDelegate>
 
 @property (nonatomic, strong) GCDAsyncSocket *selfSocket;
@@ -54,8 +54,6 @@
 @property (nonatomic, strong) NSMutableArray *imageLibrary;
 @property (nonatomic) int userType;
 @property (nonatomic) int networkStat;
-@property (nonatomic) BOOL isOverlay;
-@property (nonatomic) BOOL isAutoShow;
 @property (nonatomic) int clientLength;
 @property (nonatomic, strong) NSMutableData *clientData;
 @property (nonatomic, strong) UIImage *imageToSend;

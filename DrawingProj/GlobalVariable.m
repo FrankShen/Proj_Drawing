@@ -16,8 +16,6 @@
 @synthesize localLAN = _localLAN;
 @synthesize userType = _userType;
 @synthesize networkStat = _networkStat;
-@synthesize isOverlay = _isOverlay;
-@synthesize isAutoShow = _isAutoShow;
 @synthesize clientConnectingDelegate = _clientConnectingDelegate;
 @synthesize serverConnectingDelegate = _serverConnectingDelegate;
 - (GCDAsyncSocket *)selfSocket
@@ -62,9 +60,7 @@
     NSLog(@"%@", self.localLAN);
     NSLog(@"%@", self.deviceID);
 
-    self.isOverlay = YES;
-    self.isAutoShow = NO;
-    
+
     return self;
 }
 
@@ -198,13 +194,18 @@
             [sock readDataWithTimeout:-1 tag:IMAGE_SENDING];
         }else {
             NSLog(@"%d, %d", ((NSMutableData *)[self.dataPool objectForKey:sock.connectedHost]).length, [[self.dataLengthPool objectForKey:sock.connectedHost] intValue]);
-            [self.imageLibrary insertObject:[UIImage imageWithData:[self.dataPool objectForKey:sock.connectedHost]] atIndex:0];
+            imageInfo *tempInfo = [[imageInfo alloc] init];
+            tempInfo.image = [UIImage imageWithData:[self.dataPool objectForKey:sock.connectedHost]];
+            tempInfo.isRead = NO;
+            [self.imageLibrary insertObject:tempInfo atIndex:0];
             NSLog(@"%d",self.imageLibrary.count);
-            if (self.isAutoShow) {
-                [self.serverDrawingDelegate recievedImage:[UIImage imageWithData:[self.dataPool objectForKey:sock.connectedHost]]];
-            } else {
-                [self.serverDrawingDelegate newIncome];
-            }
+            
+            //
+            //
+            [self.serverDrawingDelegate newIncome];
+            //
+            //
+            
             [sock writeData:nil withTimeout:-1 tag:SEND_SUCCESS];
             [sock readDataWithTimeout:-1 tag:INCOMING_SIGNAL];
         }
@@ -222,7 +223,15 @@
             [self.selfSocket readDataWithTimeout:-1 tag:IMAGE_PULLING];
         } else {
             NSLog(@"%d,%d", self.clientData.length, self.clientLength);
-            [self.clientDrawingDelegate recievedImage:[UIImage imageWithData:self.clientData]];
+            imageInfo *tempInfo = [[imageInfo alloc] init];
+            tempInfo.image = [UIImage imageWithData:self.clientData];
+            tempInfo.isRead = NO;
+            [self.imageLibrary insertObject:tempInfo atIndex:0];
+            //
+            //
+            [self.clientDrawingDelegate newIncome];
+            //
+            //
         }
     }
 }

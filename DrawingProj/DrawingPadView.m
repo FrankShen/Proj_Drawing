@@ -274,7 +274,6 @@ CGPoint midPoint(CGPoint p1, CGPoint p2)
         CGContextSetLineWidth(context, self.lineWidth);
         
     }
-    [self.delegate startDrawing];
     CGContextStrokePath(context);
     [super drawRect:rect];
 }

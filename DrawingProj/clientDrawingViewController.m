@@ -8,14 +8,13 @@
 
 #import "clientDrawingViewController.h"
 #import "GlobalVariable.h"
-#import "clientDrawingSettingTableViewController.h"
-@interface clientDrawingViewController ()<DrawingPadViewDelegate,ClientDrawingToolBoxViewDelegate,ClientSettingDelegate>
+@interface clientDrawingViewController ()<DrawingPadViewDelegate,UITableViewDataSource,UITableViewDelegate>
 
 @end
 
 @implementation clientDrawingViewController
+@synthesize imageTableView;
 @synthesize gestureView;
-@synthesize toolboxView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -31,33 +30,17 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
-    UIPanGestureRecognizer *ges = [[UIPanGestureRecognizer alloc] initWithTarget:self.gestureView action:@selector(pan:)];
-    ges.maximumNumberOfTouches = 2;
-    ges.minimumNumberOfTouches = 2;
-    [self.gestureView addGestureRecognizer:ges];
+    UIPanGestureRecognizer *panGes = [[UIPanGestureRecognizer alloc] initWithTarget:self.gestureView action:@selector(pan:)];
+    panGes.maximumNumberOfTouches = 2;
+    panGes.minimumNumberOfTouches = 2;
     
-    UISwipeGestureRecognizer *gesOpen = [[UISwipeGestureRecognizer alloc] initWithTarget:self.toolboxView action:@selector(swipeOpen:)];
-    gesOpen.numberOfTouchesRequired = 1;
-    gesOpen.direction = UISwipeGestureRecognizerDirectionRight;
+    [[GlobalVariable getGlobalVariable].imageLibrary removeAllObjects];
     
-    UISwipeGestureRecognizer *gesClose = [[UISwipeGestureRecognizer alloc] initWithTarget:self.toolboxView action:@selector(swipeClose:)];
-    gesClose.numberOfTouchesRequired = 1;
-    gesClose.direction = UISwipeGestureRecognizerDirectionLeft;
+    [self.gestureView addGestureRecognizer:panGes];
     
-    [self.toolboxView addGestureRecognizer:gesOpen];
-    [self.toolboxView addGestureRecognizer:gesClose];
-    
-    self.toolboxView.frame = CGRectMake(-424, 650, 424, 69);
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [UIView animateWithDuration:0.5 animations:^{
-            self.toolboxView.frame = CGRectMake(-360, 650, 424, 69);
-        }];
-    });
-    self.toolboxView.markerButton.selected = YES;
-    
-        
     self.gestureView.drawingPadView.delegate = self;
     self.gestureView.delegate = self;
+    self.markerButton.selected = YES;
     [GlobalVariable getGlobalVariable].tempDelegate = self;
     [GlobalVariable getGlobalVariable].clientDrawingDelegate = self;
 
@@ -67,7 +50,7 @@
 - (void)viewDidUnload
 {
     [self setGestureView:nil];
-    [self setToolboxView:nil];
+    [self setImageTableView:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
@@ -77,62 +60,30 @@
     return (interfaceOrientation == UIInterfaceOrientationLandscapeRight || interfaceOrientation == UIInterfaceOrientationLandscapeLeft);
 }
 
-- (void)changeToolboxButton
-{
-    if (self.gestureView.drawingPadView.currentPenType == PEN_TYPE_MARKER){
-        [self.toolboxView.toolboxButton setImage:[UIImage imageNamed:@"marker_active.png"] forState:UIControlStateNormal];
-    } else if (self.gestureView.drawingPadView.currentPenType == PEN_TYPE_BRUSH) {
-        [self.toolboxView.toolboxButton setImage:[UIImage imageNamed:@"brush_active.png"] forState:UIControlStateNormal];
-    } else if (self.gestureView.drawingPadView.currentPenType == PEN_TYPE_ERASER) {
-        [self.toolboxView.toolboxButton setImage:[UIImage imageNamed:@"eraser_active.png"] forState:UIControlStateNormal];
-    }
-}
-
-- (IBAction)toolboxButtonPressed:(id)sender
-{
-    if (self.toolboxView.isShow) {
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [UIView animateWithDuration:0.5 animations:^{
-                self.toolboxView.frame = CGRectMake(-360, 650, 424, 69);
-            }];
-        });
-        self.toolboxView.isShow = NO;
-        [self changeToolboxButton];
-    } else {
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [UIView animateWithDuration:0.5 animations:^{
-                self.toolboxView.frame = CGRectMake(0, 650, 424, 69);
-            }];
-        });
-        self.toolboxView.isShow = YES;
-        [self.toolboxView.toolboxButton setImage:[UIImage imageNamed:@"close.png"] forState:UIControlStateNormal];
-    }
-}
-
 - (IBAction)markButtonPressed:(id)sender
 {
     self.gestureView.drawingPadView.currentPenType = PEN_TYPE_MARKER;
-    self.toolboxView.markerButton.selected = YES;
-    self.toolboxView.brushButton.selected = NO;
-    self.toolboxView.eraserButton.selected = NO;
+    self.markerButton.selected = YES;
+    self.brushButton.selected = NO;
+    self.eraserButton.selected = NO;
 }
 
 
 - (IBAction)brushButtonPressed:(id)sender
 {
     self.gestureView.drawingPadView.currentPenType = PEN_TYPE_BRUSH;
-    self.toolboxView.markerButton.selected = NO;
-    self.toolboxView.brushButton.selected = YES;
-    self.toolboxView.eraserButton.selected = NO;
+    self.markerButton.selected = NO;
+    self.brushButton.selected = YES;
+    self.eraserButton.selected = NO;
 }
 
 
 - (IBAction)eraserButtonPressed:(id)sender
 {
     self.gestureView.drawingPadView.currentPenType = PEN_TYPE_ERASER;
-    self.toolboxView.markerButton.selected = NO;
-    self.toolboxView.brushButton.selected = NO;
-    self.toolboxView.eraserButton.selected = YES;
+    self.markerButton.selected = NO;
+    self.brushButton.selected = NO;
+    self.eraserButton.selected = YES;
 }
 
 
@@ -160,68 +111,18 @@
 - (void)undoStatChanged
 {
     if ([self.gestureView.drawingPadView haveSomeToUndo]){
-        self.toolboxView.undoButton.selected = YES;
+        self.undoButton.selected = YES;
     } else {
-        self.toolboxView.undoButton.selected = NO;
+        self.undoButton.selected = NO;
     }
 }
 
-- (void)startDrawing
-{
-    if (self.toolboxView.isShow) {
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [UIView animateWithDuration:0.5 animations:^{
-                self.toolboxView.frame = CGRectMake(-360, 650, 424, 69);
-            }];
-        });
-        self.toolboxView.isShow = NO;
-        [self changeToolboxButton];
-    }
-}
-
-- (void)swipeLeftFromRightDetect
-{
-    if (!self.toolboxView.isShow){
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [UIView animateWithDuration:0.5 animations:^{
-                self.toolboxView.frame = CGRectMake(0, 650, 424, 69);
-            }];
-        });
-        self.toolboxView.isShow = YES;
-        [self.toolboxView.toolboxButton setImage:[UIImage imageNamed:@"close.png"] forState:UIControlStateNormal];
-    }
-}
-
-- (void)swipeRightFromLeftDetect
-{
-    if (self.toolboxView.isShow) {
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [UIView animateWithDuration:0.5 animations:^{
-                self.toolboxView.frame = CGRectMake(-360, 650, 424, 69);
-            }];
-        });
-        self.toolboxView.isShow = NO;
-        [self changeToolboxButton];
-    }
-}
-
-- (IBAction)settingButtonPressed:(id)sender
-{
-    [self performSegueWithIdentifier:@"clientSetting" sender:self];
-}
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if ([segue.identifier isEqualToString:@"clientSetting"]){
-        //
-        self.popOver = ((UIStoryboardPopoverSegue *)segue).popoverController;
-    }
-}
-
-- (void)dismissVC
-{
-    [self dismissModalViewControllerAnimated:YES];
-    [self.popOver dismissPopoverAnimated:NO];
+    //
+    //
+    //
 }
 
 - (void)sendImage
@@ -243,6 +144,48 @@
 
 - (void)recievedImage:(UIImage *)image
 {
-    [self.gestureView.drawingPadView refreshWithPicture:image Cover:[GlobalVariable getGlobalVariable].isOverlay];
+    [self.gestureView.drawingPadView refreshWithPicture:image Cover:YES];
 }
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return [GlobalVariable getGlobalVariable].imageLibrary.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    ImageLibraryCell *cell = [self.imageTableView dequeueReusableCellWithIdentifier:@"imageCell"];
+    if (!cell)
+        cell = [[ImageLibraryCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"imageCell"];
+    
+    cell.tag = indexPath.row;
+    cell.image.image = ((imageInfo *)[[GlobalVariable getGlobalVariable].imageLibrary objectAtIndex:indexPath.row]).image;
+    if (((imageInfo *)[[GlobalVariable getGlobalVariable].imageLibrary objectAtIndex:indexPath.row]).isRead){
+        cell.unreadSignal.image = [UIImage imageNamed:@"read_signal.png"];
+    } else {
+        cell.unreadSignal.image = [UIImage imageNamed:@"unread_signal.png"];
+    }
+    
+    return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 111;
+}
+
+- (void)newIncome
+{
+    [self.imageTableView reloadData];
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    ((ImageLibraryCell *)[tableView cellForRowAtIndexPath:indexPath]).unreadSignal.image = [UIImage imageNamed:@"read_signal.png"];
+    ((imageInfo *)[[GlobalVariable getGlobalVariable].imageLibrary objectAtIndex:indexPath.row]).isRead = YES;
+    UIImage *tempImage = ((imageInfo *)[[GlobalVariable getGlobalVariable].imageLibrary objectAtIndex:indexPath.row]).image;
+    [self.gestureView.drawingPadView refreshWithPicture:tempImage Cover:YES];
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
 @end

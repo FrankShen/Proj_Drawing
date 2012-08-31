@@ -10,8 +10,16 @@
 #import "clientDrawingGestureView.h"
 #import "clientDrawingToolboxView.h"
 #import "GlobalVariable.h"
+#import "ImageLibraryTableView.h"
+#import "ImageLibraryCell.h"
 @interface clientDrawingViewController : UIViewController<ClientDrawingGestureDelegate,GlobalVariableDelegate>
 @property (weak, nonatomic) IBOutlet clientDrawingGestureView *gestureView;
-@property (weak, nonatomic) IBOutlet clientDrawingToolboxView *toolboxView;
 @property (weak, nonatomic) UIPopoverController *popOver;
+
+@property (nonatomic,weak) IBOutlet UIButton *markerButton;
+@property (nonatomic,weak) IBOutlet UIButton *brushButton;
+@property (nonatomic,weak) IBOutlet UIButton *eraserButton;
+@property (weak, nonatomic) IBOutlet UIButton *undoButton;
+@property (weak, nonatomic) IBOutlet ImageLibraryTableView *imageTableView;
+
 @end

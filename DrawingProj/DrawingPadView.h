@@ -16,7 +16,6 @@
 @protocol DrawingPadViewDelegate <NSObject>
 
 - (void)undoStatChanged;
-- (void)startDrawing;
 
 @end
 

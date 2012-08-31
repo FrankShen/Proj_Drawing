@@ -1,18 +1,14 @@
 //
-//  clientDrawingToolboxView.m
+//  ImageLibraryTableView.m
 //  DrawingProj
 //
-//  Created by BuG.BS on 12-8-28.
+//  Created by BuG.BS on 12-8-31.
 //  Copyright (c) 2012年 BuG.BS. All rights reserved.
 //
 
-#import "clientDrawingToolboxView.h"
+#import "ImageLibraryTableView.h"
 
-@implementation clientDrawingToolboxView
-@synthesize markerButton = _markerButton;
-@synthesize brushButton = _brushButton;
-@synthesize eraserButton = _eraserButton;
-@synthesize undoButton = _undoButton;
+@implementation ImageLibraryTableView
 
 - (id)initWithFrame:(CGRect)frame
 {
