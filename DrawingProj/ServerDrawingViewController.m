@@ -9,7 +9,7 @@
 #import "ServerDrawingViewController.h"
 #import "DrawingPadView.h"
 #import "GlobalVariable.h"
-@interface ServerDrawingViewController ()<DrawingPadViewDelegate,UITableViewDataSource,UITableViewDelegate>
+@interface ServerDrawingViewController ()<DrawingPadViewDelegate,UITableViewDataSource,UITableViewDelegate,UIActionSheetDelegate>
 
 @end
 
@@ -163,6 +163,21 @@
     UIImage *tempImage = ((imageInfo *)[[GlobalVariable getGlobalVariable].imageLibrary objectAtIndex:indexPath.row]).image;
     [self.gestureView.drawingPadView refreshWithPicture:tempImage Cover:YES];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+- (IBAction)disconnectButtonPressed:(UIButton *)sender
+{
+    UIActionSheet *menu = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:@"断开链接" otherButtonTitles:nil];
+    [menu showFromRect:sender.frame inView:self.view animated:YES];
+
+}
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 0){
+        [[GlobalVariable getGlobalVariable].selfSocket disconnectAfterWriting];
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }
 }
 
 @end

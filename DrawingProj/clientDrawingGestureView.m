@@ -51,7 +51,10 @@
         
         if (self.frame.origin.y < -200) {
             NSLog(@"YES");
-            [self.delegate sendImage];
+            dispatch_queue_t sendingQueue = dispatch_queue_create("sendingQueue", NULL);
+            dispatch_async(sendingQueue, ^{
+                [self.delegate sendImage];
+            });
             [UIView animateWithDuration:0.5 delay:0.0 options:UIViewAnimationCurveEaseOut animations:^{
                 self.frame = CGRectMake(self.frame.origin.x, -768, self.frame.size.width, self.frame.size.height);
                 self.drawingPadView.alpha = 0.0;

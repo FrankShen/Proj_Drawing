@@ -324,12 +324,15 @@ CGPoint midPoint(CGPoint p1, CGPoint p2)
 
 - (UIImage *)getCurrentPicture
 {
+    /*
     UIImage *tempImage = [[UIImage alloc] init];
     UIGraphicsBeginImageContext(self.frame.size);
     [self.layer renderInContext:UIGraphicsGetCurrentContext()];
     tempImage = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     return tempImage;
+     */
+    return curImage;
 }
 
 - (BOOL)haveSomeToUndo

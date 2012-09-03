@@ -24,6 +24,7 @@
 		9B454CC115EC5E5400932D97 /* clientDrawingGestureView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B454CC015EC5E5400932D97 /* clientDrawingGestureView.m */; };
 		9B454CC415EC5E6900932D97 /* clientDrawingToolboxView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B454CC315EC5E6900932D97 /* clientDrawingToolboxView.m */; };
 		9B928F0315EA11DB007A1E90 /* ServerDrawingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B928F0215EA11DB007A1E90 /* ServerDrawingViewController.m */; };
+		9BAA336415F4DE9400C72079 /* disconnect.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BAA336315F4DE9400C72079 /* disconnect.png */; };
 		9BB0174515E216D000133D10 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BB0174415E216D000133D10 /* UIKit.framework */; };
 		9BB0174715E216D000133D10 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BB0174615E216D000133D10 /* Foundation.framework */; };
 		9BB0174915E216D000133D10 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BB0174815E216D000133D10 /* CoreGraphics.framework */; };
@@ -89,6 +90,7 @@
 		9B928F0215EA11DB007A1E90 /* ServerDrawingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServerDrawingViewController.m; sourceTree = "<group>"; };
 		9B928F3715EA6099007A1E90 /* DrawingPadView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DrawingPadView.h; sourceTree = "<group>"; };
 		9B928F3815EA6099007A1E90 /* DrawingPadView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DrawingPadView.m; sourceTree = "<group>"; };
+		9BAA336315F4DE9400C72079 /* disconnect.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = disconnect.png; sourceTree = "<group>"; };
 		9BB0174015E216D000133D10 /* 分享画板.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "分享画板.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BB0174415E216D000133D10 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		9BB0174615E216D000133D10 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -156,6 +158,7 @@
 		9B26068715E32AB900CD59EC /* GUI */ = {
 			isa = PBXGroup;
 			children = (
+				9BAA336315F4DE9400C72079 /* disconnect.png */,
 				9BE3A85C15F0AD740045AC99 /* unread_signal.png */,
 				9BE3A85A15F0A9C30045AC99 /* image_library_cell_background.png */,
 				9BE3A85215F09A210045AC99 /* button_back.png */,
@@ -386,6 +389,7 @@
 				9BE3A85B15F0A9C30045AC99 /* image_library_cell_background.png in Resources */,
 				9BE3A85D15F0AD740045AC99 /* unread_signal.png in Resources */,
 				9BE3A86215F0BA430045AC99 /* read_signal.png in Resources */,
+				9BAA336415F4DE9400C72079 /* disconnect.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

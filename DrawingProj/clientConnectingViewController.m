@@ -49,7 +49,8 @@
 #pragma mark IBAction
 - (IBAction)backButtonPressed:(id)sender
 {
-    [self performSegueWithIdentifier:@"clientBackToMain" sender:self];
+    [self dismissViewControllerAnimated:YES completion:nil];
+    //[self performSegueWithIdentifier:@"clientBackToMain" sender:self];
 }
 
 - (IBAction)connectButtonPressed:(id)sender
@@ -113,6 +114,7 @@
 {
     if ([segue.identifier isEqualToString:@"clientConnectSuccess"]){
         //[self dismissModalViewControllerAnimated:NO];
+        
     }
 }
 

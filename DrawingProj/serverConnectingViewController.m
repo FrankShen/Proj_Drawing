@@ -51,7 +51,8 @@
 #pragma mark IBAction
 - (IBAction)backButtonPressed:(id)sender
 {
-    [self performSegueWithIdentifier:@"serverBackToMain" sender:self];
+    [self dismissViewControllerAnimated:YES completion:nil];
+    //[self performSegueWithIdentifier:@"serverBackToMain" sender:self];
 }
 
 - (IBAction)createButtonPressed:(id)sender
