@@ -34,12 +34,12 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    self.serverButton.frame = CGRectMake(self.serverButton.frame.origin.x, 768, 304, 310);
-    self.clientButton.frame = CGRectMake(self.clientButton.frame.origin.x, 768, 304, 310);
+    self.serverButton.frame = CGRectMake(self.serverButton.frame.origin.x, 768, 168, 168);
+    self.clientButton.frame = CGRectMake(self.clientButton.frame.origin.x, 768, 168, 168);
     
     [UIView animateWithDuration:1.0 delay:0.5 options:UIViewAnimationCurveEaseOut animations:^{
-        self.serverButton.frame = CGRectMake(self.serverButton.frame.origin.x, 229, 304, 310);
-        self.clientButton.frame = CGRectMake(self.clientButton.frame.origin.x, 229, 304, 310);
+        self.serverButton.frame = CGRectMake(self.serverButton.frame.origin.x, 300, 168, 168);
+        self.clientButton.frame = CGRectMake(self.clientButton.frame.origin.x, 300, 168, 168);
     }completion:^(BOOL isFinished){
         NSLog(@"OK");
     }];
@@ -61,8 +61,8 @@
 - (IBAction)serverButtonPressed:(id)sender
 {
     [UIView animateWithDuration:1.0 delay:0.0 options:UIViewAnimationCurveEaseIn animations:^{
-        self.serverButton.frame = CGRectMake(self.serverButton.frame.origin.x, 768, 304, 310);
-        self.clientButton.frame = CGRectMake(self.clientButton.frame.origin.x, 768, 304, 310);
+        self.serverButton.frame = CGRectMake(self.serverButton.frame.origin.x, 768, 168, 168);
+        self.clientButton.frame = CGRectMake(self.clientButton.frame.origin.x, 768, 168, 168);
     }completion:^(BOOL isFinished){
         NSLog(@"Server");
         [GlobalVariable getGlobalVariable].userType = USER_TYPE_SERVER;
@@ -73,8 +73,8 @@
 - (IBAction)clientButtonPressed:(id)sender
 {
     [UIView animateWithDuration:1.0 delay:0.0 options:UIViewAnimationCurveEaseIn animations:^{
-        self.serverButton.frame = CGRectMake(self.serverButton.frame.origin.x, 768, 304, 310);
-        self.clientButton.frame = CGRectMake(self.clientButton.frame.origin.x, 768, 304, 310);
+        self.serverButton.frame = CGRectMake(self.serverButton.frame.origin.x, 768, 168, 168);
+        self.clientButton.frame = CGRectMake(self.clientButton.frame.origin.x, 768, 168, 168);
     }completion:^(BOOL isFinished){
         NSLog(@"Client");
         [GlobalVariable getGlobalVariable].userType = USER_TYPE_CLIENT;

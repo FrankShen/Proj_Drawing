@@ -179,6 +179,9 @@
             self.imageToSend = [self.serverDrawingDelegate grabImage];
             
             [sock writeData:[[NSString stringWithFormat:@"%d", UIImagePNGRepresentation(self.imageToSend).length] dataUsingEncoding:NSUTF8StringEncoding] withTimeout:-1 tag:PREPARE_FOR_PULL];
+            
+            NSLog(@"%d",UIImagePNGRepresentation(self.imageToSend).length);
+            
             [sock writeData:UIImagePNGRepresentation(self.imageToSend) withTimeout:-0 tag:IMAGE_PULLING];
             [sock readDataWithTimeout:-1 tag:INCOMING_SIGNAL];
         }

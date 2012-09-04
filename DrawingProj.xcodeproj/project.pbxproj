@@ -61,6 +61,9 @@
 		9BF516D615EE48FB002E9CB3 /* setting_center.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BF516D415EE48FB002E9CB3 /* setting_center.png */; };
 		9BF516D715EE48FB002E9CB3 /* setting_center_new.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BF516D515EE48FB002E9CB3 /* setting_center_new.png */; };
 		9BF516DC15EE5620002E9CB3 /* iconx72.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BF516DB15EE5620002E9CB3 /* iconx72.png */; };
+		9BFC874515F5D2B3009831F6 /* login_background.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BFC874415F5D2B3009831F6 /* login_background.png */; };
+		9BFC874815F5E1D9009831F6 /* color.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BFC874715F5E1D9009831F6 /* color.png */; };
+		9BFC874A15F5EF76009831F6 /* line.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BFC874915F5EF76009831F6 /* line.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -137,6 +140,9 @@
 		9BF516D415EE48FB002E9CB3 /* setting_center.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = setting_center.png; sourceTree = "<group>"; };
 		9BF516D515EE48FB002E9CB3 /* setting_center_new.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = setting_center_new.png; sourceTree = "<group>"; };
 		9BF516DB15EE5620002E9CB3 /* iconx72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iconx72.png; sourceTree = "<group>"; };
+		9BFC874415F5D2B3009831F6 /* login_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = login_background.png; sourceTree = "<group>"; };
+		9BFC874715F5E1D9009831F6 /* color.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = color.png; sourceTree = "<group>"; };
+		9BFC874915F5EF76009831F6 /* line.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = line.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,6 +164,9 @@
 		9B26068715E32AB900CD59EC /* GUI */ = {
 			isa = PBXGroup;
 			children = (
+				9BFC874915F5EF76009831F6 /* line.png */,
+				9BFC874715F5E1D9009831F6 /* color.png */,
+				9BFC874415F5D2B3009831F6 /* login_background.png */,
 				9BAA336315F4DE9400C72079 /* disconnect.png */,
 				9BE3A85C15F0AD740045AC99 /* unread_signal.png */,
 				9BE3A85A15F0A9C30045AC99 /* image_library_cell_background.png */,
@@ -390,6 +399,9 @@
 				9BE3A85D15F0AD740045AC99 /* unread_signal.png in Resources */,
 				9BE3A86215F0BA430045AC99 /* read_signal.png in Resources */,
 				9BAA336415F4DE9400C72079 /* disconnect.png in Resources */,
+				9BFC874515F5D2B3009831F6 /* login_background.png in Resources */,
+				9BFC874815F5E1D9009831F6 /* color.png in Resources */,
+				9BFC874A15F5EF76009831F6 /* line.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

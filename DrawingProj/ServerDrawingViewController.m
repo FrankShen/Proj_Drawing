@@ -122,7 +122,12 @@
 
 - (UIImage *)grabImage
 {
-    return [self.gestureView.drawingPadView getCurrentPicture];
+    UIImage *tempImage = [[UIImage alloc] init];
+    UIGraphicsBeginImageContext(self.gestureView.drawingPadView.frame.size);
+    [self.gestureView.drawingPadView.layer renderInContext:UIGraphicsGetCurrentContext()];
+    tempImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return tempImage;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
